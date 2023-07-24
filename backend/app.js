@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
-const morgan = require('morgan')
-
-//Middleware
-app.use(express.json());
-app.use(morgan('tiny'));
+const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 require('dotenv/config')
 
 const api = process.env.API_URL
 
-
+//Middleware
+app.use(express.json())
+app.use(morgan('tiny'))
 
 app.get(`${api}/products`, (req, res) => {
     const product = {
@@ -20,7 +19,7 @@ app.get(`${api}/products`, (req, res) => {
     }
     res.send(product)
 
-    console.log(product);
+    console.log(product)
 })
 
 app.post(`${api}/products`, (req, res) => {
@@ -28,6 +27,15 @@ app.post(`${api}/products`, (req, res) => {
     console.log(newProduct)
     res.send(newProduct)
 })
+
+mongoose.connect(process.env.CONNECTION_STRING)
+.then(() => {
+    console.log('Database Connection is ready...');
+})
+.catch((err)=>{
+    console.log(err);
+})
+
 app.listen(3000, () => {
     console.log(api)
     console.log('server is running http://localhost:3000')
