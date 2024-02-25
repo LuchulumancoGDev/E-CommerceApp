@@ -26,7 +26,7 @@ router.get(`/:categoryId`, async (req, res) => {
     }
 });
 
-// Route to add a new product
+
 router.post(`/`, async (req, res) => {
     try {
         const category = new Category({
@@ -45,7 +45,7 @@ router.post(`/`, async (req, res) => {
 router.put(`/:categoryId`, async (req, res) => {
     try {
         const updatedCategory = await Category.findByIdAndUpdate(req.params.categoryId, req.body, { new: true });
-        if (!updatedcategory) {
+        if (!updatedCategory) {
             return res.status(404).json({ error: 'Categoty not found' });
         }
         res.json(updatedCategory);

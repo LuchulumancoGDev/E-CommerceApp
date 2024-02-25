@@ -13,7 +13,12 @@ const orderSchema = mongoose.Schema({
     user: String,
     dateOrdered: Date
 });
-
+orderSchema.virtual('id').get(function () {
+    return this._id.toHexString();
+});
+orderSchema.set('toJSON', {
+    virtuals: true,
+});
 const Order = mongoose.model('Order', orderSchema);
 
 module.exports = Order;
