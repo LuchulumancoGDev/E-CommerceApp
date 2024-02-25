@@ -2,16 +2,46 @@ const mongoose = require('mongoose');
 
 // Define product schema
 const userSchema = mongoose.Schema({
-    isAdmin: Boolean,
-    name: String,
-    email:String,
-    passwordHash:String,
-    phone: String,
-    apartment: String,
-    city: String,
-    country: String,
-    street: String,
-    zip: String,
+    isAdmin: {
+        type: Boolean,
+        default:false,
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    email:{
+        type: String,
+        required: true,
+    },
+    passwordHash:{
+        type: String,
+        required: true,
+    },
+    phone: {
+        type: String,
+        required: true,
+    },
+    apartment: {
+        type: String,
+        default: '',
+    },
+    city: {
+        type: String,
+        default: '',
+    },
+    country: {
+        type: String,
+        default: '',
+    },
+    street:{
+        type: String,
+        default: '',
+    },
+    zip: {
+        type: String,
+        default: '',
+    },
     
 });
 
