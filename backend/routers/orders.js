@@ -61,9 +61,6 @@ router.post(`/`, async (req, res) => {
         }))
 
         const totalPrice = totalPrices.reduce((a,b) => a + b, 0)
-
-        console.log(totalPrices);
-
         const order = new Order({
             orderItems: orderItemsIdsResolved,
             status: req.body.status,

@@ -2,6 +2,7 @@ const Category = require('../models/category');
 const Product = require('../models/product');
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
 const mongoose = require('mongoose');
 
 // Route to get all products from the database
