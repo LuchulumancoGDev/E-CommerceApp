@@ -2,9 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const cors = require('cors')
-
-
+const cors = require('cors');
 require('dotenv/config');
 
 app.use(cors());
@@ -15,11 +13,16 @@ const productsRouter = require('./routers/products')
 const categoriesRouter = require('./routers/categories')
 const orderItemsRouter = require('./routers/orderItems')
 const orderRouter = require('./routers/orders')
-const userRouter = require('./routers/users')
+const userRouter = require('./routers/users');
+const authJwt = require('./helpers/jwt');
+const errorHandler = require('./helpers/errorHandler');
 
 // Middleware
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(authJwt());
+app.use(errorHandler);
+
 
 //Routers
 app.use(`${api}/products`, productsRouter);
