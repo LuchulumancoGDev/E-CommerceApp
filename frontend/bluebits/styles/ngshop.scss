@@ -1,0 +1,25 @@
+//Base
+@import '../styles/base/colors.scss';
+@import '../styles/base/fonts.scss';
+@import './base/mixins.scss';
+
+
+//Pages
+@import './apps/shop/pages/home-page.scss';
+@import './apps/shop/pages/products-lists-page.scss';
+
+//Library
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import '../styles/base/configuration.scss';
+@import 'primeflex/primeflex.scss';
+
+//Shared
+@import './apps/shop/shared/header.scss';
+@import './apps/shop/shared/footer.scss';
+
+//Libs
+@import '../styles/libs/ui/ui.scss';
+
+
