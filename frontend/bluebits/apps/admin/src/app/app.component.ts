@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 
