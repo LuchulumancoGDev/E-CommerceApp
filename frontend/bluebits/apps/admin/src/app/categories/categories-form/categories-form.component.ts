@@ -61,6 +61,10 @@ export class CategoriesFormComponent implements OnInit{
       }
     })
   }
+
+  onCancel() {
+    this.location.back();
+  }
   onSubmit() {
     this.isSubmited = true;
     if (this.form.valid) {
