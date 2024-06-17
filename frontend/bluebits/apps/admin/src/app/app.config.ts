@@ -14,6 +14,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 export const appConfig: ApplicationConfig = {
   providers: [provideClientHydration(), provideRouter(appRoutes),
     importProvidersFrom(CardModule, ToolbarModule, ConfirmDialogModule, ButtonModule,TableModule, HttpClientModule, InputTextModule,FormsModule,ReactiveFormsModule, CommonModule,ToastModule,BrowserAnimationsModule)

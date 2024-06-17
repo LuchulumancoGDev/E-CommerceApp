@@ -10,19 +10,21 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { timer } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 @Component({
   selector: 'admin-categories-form',
   standalone: true,
   providers:[MessageService],
-  imports: [CardModule, ToolbarModule,CommonModule, ToastModule, ButtonModule,InputTextModule,FormsModule,ReactiveFormsModule],
+  imports: [CardModule, ToolbarModule,CommonModule,ColorPickerModule, ToastModule, ButtonModule,InputTextModule,FormsModule,ReactiveFormsModule],
   templateUrl: './categories-form.component.html',
   styles: ``
 })
 export class CategoriesFormComponent implements OnInit{
   isSubmited = false;
   editmode = false;
-  currentCategoryId: string|undefined;
+  currentCategoryId: string | undefined;
+
 
   form: FormGroup | any;
   constructor(private formBuilder: FormBuilder,
@@ -35,6 +37,7 @@ export class CategoriesFormComponent implements OnInit{
 
    ngOnInit(): void {
      this.form = this.formBuilder.group({
+       color:['#fff',Validators.required],
        name: ['',Validators.required],
        icon:['', Validators.required],
      })
@@ -50,6 +53,7 @@ export class CategoriesFormComponent implements OnInit{
 
           this.form.controls['name'].setValue(category.name);
           this.form.controls['icon'].setValue(category.icon);
+          this.form.controls['color'].setValue(category.color);
         })
 
 
@@ -66,7 +70,8 @@ export class CategoriesFormComponent implements OnInit{
       const category: Category = {
         id:this.currentCategoryId,
         name: this.form.controls.name.value,
-        icon:this.form.controls.icon.value
+        icon: this.form.controls.icon.value,
+        color: this.form.controls.color.value,
 
       }
 
@@ -90,25 +95,25 @@ export class CategoriesFormComponent implements OnInit{
   }
 
   private _updateCategory(category: Category) {
-    this.categoryService.updateCategory(category).subscribe(r => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category is updated' });
-        timer(2000).toPromise().then(done => {
+    this.categoryService.updateCategory(category).subscribe((category:Category) => {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Category ${category.name} is updated` });
+        timer(2000).toPromise().then(() => {
           this.location.back();
         } )
       },
-        (error)=>{
+        ()=>{
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Category has not been updated' });
       });
   }
 
   private _addCategory(category:Category) {
-     this.categoryService.createCategory(category).subscribe(r => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category is created' });
-        timer(2000).toPromise().then(done => {
+     this.categoryService.createCategory(category).subscribe((category:Category) => {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Category ${category.name} is created` });
+        timer(2000).toPromise().then(() => {
           this.location.back();
         } )
       },
-        (error)=>{
+        ()=>{
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Category has not been created' });
       });
   }

@@ -9,12 +9,13 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 @Component({
   selector: 'admin-categories-list',
   standalone: true,
    providers:[MessageService, ConfirmationService],
-  imports: [CardModule, ToolbarModule,CommonModule,ConfirmDialogModule, ToastModule, ButtonModule, TableModule, RouterModule],
+  imports: [CardModule, ToolbarModule,CommonModule,ConfirmDialogModule,ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
   templateUrl: './categories-list.component.html',
   styles: ``
 })
