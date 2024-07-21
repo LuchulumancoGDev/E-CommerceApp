@@ -25,7 +25,9 @@
           "apps/admin/src/assets"
         ],
         "styles": [
-          "apps/admin/src/styles.sass"
+          "apps/admin/src/styles.sass",
+          "../node_modules/quill/dist/quill.core.css",
+          "../node_modules/quill/dist/quill.snow.css"
         ],
         "scripts": []
       },

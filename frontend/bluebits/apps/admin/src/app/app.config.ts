@@ -13,10 +13,11 @@ import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EditorModule } from 'primeng/editor';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [provideClientHydration(), provideRouter(appRoutes),
-    importProvidersFrom(CardModule, ToolbarModule, ConfirmDialogModule, ButtonModule,TableModule, HttpClientModule, InputTextModule,FormsModule,ReactiveFormsModule, CommonModule,ToastModule,BrowserAnimationsModule)
+    importProvidersFrom(CardModule,EditorModule, ToolbarModule, ConfirmDialogModule, ButtonModule,TableModule, HttpClientModule, InputTextModule,FormsModule,ReactiveFormsModule, CommonModule,ToastModule,BrowserAnimationsModule)
   ],
 };
