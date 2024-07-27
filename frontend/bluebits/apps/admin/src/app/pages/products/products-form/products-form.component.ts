@@ -15,12 +15,13 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @Component({
   selector: 'admin-products-form',
   standalone: true,
    providers:[MessageService],
-  imports: [CardModule, EditorModule,DropdownModule,InputSwitchModule,InputTextareaModule,InputNumberModule,ToolbarModule,CommonModule,ColorPickerModule, ToastModule, ButtonModule,InputTextModule,FormsModule, ReactiveFormsModule],
+  imports: [CardModule,PdfViewerModule, EditorModule,DropdownModule,InputSwitchModule,InputTextareaModule,InputNumberModule,ToolbarModule,CommonModule,ColorPickerModule, ToastModule, ButtonModule,InputTextModule,FormsModule, ReactiveFormsModule],
   templateUrl: './products-form.component.html',
   styleUrl: './products-form.component.css'
 })
@@ -28,8 +29,22 @@ export class ProductsFormComponent implements OnInit{
 onCancel() {
 throw new Error('Method not implemented.');
 }
-onSubmit() {
-throw new Error('Method not implemented.');
+  onSubmit() {
+    this.isSubmited = true;
+  if (this.form.invalid)
+      return;
+
+    const productFormData = new FormData();
+      Object.keys(this.form.controls).map((key) => {
+      const control = this.form.get(key);
+      if (control) {
+        console.log(key);
+        console.log(control.value);
+        productFormData.append(key, control.value);
+      }
+    });
+
+    //this.addProduct(productFormData);
   }
   categories: Category[] | undefined;
 
@@ -37,6 +52,7 @@ throw new Error('Method not implemented.');
   editmode = false;
   currentProductId: string | undefined;
   form: FormGroup | any;
+  imageDisplay!: string | ArrayBuffer | null;
   constructor(private formBuilder: FormBuilder,
     private messageService: MessageService,
     private productsService: ProductsService,
@@ -54,6 +70,19 @@ throw new Error('Method not implemented.');
     this.categoriesService.getCategories().subscribe(categories => {
       this.categories = categories;
     })
+  }
+
+  onImageUpload(event: any)
+  {
+    const file = event.target.files[0];
+    if (file)
+    {
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        this.imageDisplay = fileReader.result;
+      }
+      fileReader.readAsDataURL(file);
+    }
   }
   private initForm() {
     this.form = this.formBuilder.group({

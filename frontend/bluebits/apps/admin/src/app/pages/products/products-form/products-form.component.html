@@ -83,11 +83,7 @@
 
             <div class="formgrid grid">
 
-             <div class="field col">
-              <label for="image">Image</label>
-              <input id="image" formControlName="image" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-              <small *ngIf="form.controls.image.invalid && isSubmited" class="p-error">Image is required</small>
-            </div>
+
               <div class="field col">
               <label for="description">Description</label>
 
@@ -107,6 +103,14 @@
 
                 <p-editor formControlName="richDescription" [style]="{ height: '320px' }" />
               <small *ngIf="form.controls.richDescription.invalid && isSubmited" class="p-error">Rich Description is required</small>
+            </div>
+             <div class="field col">
+              <label for="image">Main Image</label>
+              <input type="file" class="p-inputtext p-mb-2 p-mt-2" accept="image/*"  (change)="onImageUpload($event)" />
+              <div class="p-col-2">
+                <img style="width:100%;" [src]="imageDisplay" alt="">
+              </div>
+              <small *ngIf="form.controls.image.invalid && isSubmited" class="p-error">Image is required</small>
             </div>
             </div>
 
