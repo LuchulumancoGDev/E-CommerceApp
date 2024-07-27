@@ -17,19 +17,19 @@ export class ProductsService {
     return this.http.get<Product[]>(this.baseUrl)
   }
 
-  // getCategory(categoryId: string): Observable<Category> {
-  //   return this.http.get<Category>(`${this.baseUrl}/${categoryId}`)
-  // }
+  getProduct(productId: string): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/${productId}`)
+  }
 
-  // createCategory(category: Category):Observable<Category>{
-  //   return this.http.post<Category>(this.baseUrl, category)
-  // }
+  createProduct(productData: FormData):Observable<Product>{
+    return this.http.post<Product>(this.baseUrl, productData);
+  }
 
-  // updateCategory(category: Category):Observable<Category>{
-  //   return this.http.put<Category>(this.baseUrl+'/'+category.id, category)
-  // }
+  updateProduct(product: FormData, productId: string):Observable<Product>{
+    return this.http.put<Product>(this.baseUrl+'/'+productId, product)
+  }
 
-  // deleteCategory(categoryId: string): Observable<object>{
-  //   return this.http.delete<object>(`${this.baseUrl}/${categoryId}`)
-  // }
+  deleteProduct(productId: string): Observable<object>{
+    return this.http.delete<object>(`${this.baseUrl}/${productId}`)
+  }
 }
