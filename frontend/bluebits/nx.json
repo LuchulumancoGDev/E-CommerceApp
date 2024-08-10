@@ -89,5 +89,6 @@
       "linter": "eslint",
       "unitTestRunner": "jest"
     }
-  }
+  },
+  "nxCloudAccessToken": "MDU5YWU4MTctZjBkNi00ZTcyLTgyNGYtZDI1MzJkZmI5NWE2fHJlYWQtd3JpdGU="
 }
