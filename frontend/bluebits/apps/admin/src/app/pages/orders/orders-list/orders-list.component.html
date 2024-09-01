@@ -1,0 +1,61 @@
+<p-toast />
+<p-confirmDialog />
+<div class="admin-page">
+  <p-card header="Orders" subheader="List of all orders">
+    <div class="p-grid pt-2">
+      <div class="p-col-12">
+        <p-table
+          [value]="orders"
+          styleClass="p-datatable-gridlines"
+          [tableStyle]="{ 'min-width': '50rem' }"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="orderItem">
+                orderItem <p-sortIcon field="orderItem"></p-sortIcon>
+              </th>
+              <th>shippingAddress1</th>
+              <th>shippingAddress2</th>
+              <th>city</th>
+              <th>zip</th>
+              <th>country</th>
+              <th>phone</th>
+              <th pSortableColumn="status">status<p-sortIcon field="status"></p-sortIcon></th>
+              <th pSortableColumn="totalPrice">totalPrice<p-sortIcon field="totalPrice"></p-sortIcon></th>
+              <th pSortableColumn="user">user<p-sortIcon field="user"></p-sortIcon></th>
+              <th pSortableColumn="dateOrdered">dateOrdered<p-sortIcon field="dateOrdered"></p-sortIcon></th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-order>
+            <tr>
+              <td>{{ order.orderItems }}</td>
+              <td>{{ order.shippingAddress1 }}</td>
+              <td>{{ order.shippingAddress2 }}</td>
+              <td>{{ order.city }}</td>
+              <td>{{ order.zip }}</td>
+              <td>{{ order.country }}</td>
+              <td>{{ order.phone }}</td>
+              <td>{{ order.status }}</td>
+              <td>{{ order.totalPrice }}</td>
+              <td>{{ order.user }}</td>
+               <td>{{ order.dateOrdered }}</td>
+
+              <td>
+                <p-button
+                  styleClass="p-button-danger p-mr-2"
+                  icon="pi pi-trash"
+                  (click)="onDelete(order.id)"
+                />
+                <p-button
+                  styleClass="p-button-success"
+                  icon="pi pi-pencil"
+                  (click)="showOrder(order.id)"
+                />
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </p-card>
+</div>
