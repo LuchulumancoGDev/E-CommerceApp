@@ -12,7 +12,9 @@ import { UsersService } from '../../../../../../../libs/users/src/lib/users.serv
 import { ConfirmationService } from 'primeng/api'; // Correct import path
 import { Router, RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
+import * as countries from 'i18n-iso-countries';
 
+declare const require: (arg0: string) => countries.LocaleData;
 @Component({
   selector: 'admin-users-list',
   standalone: true,
@@ -36,6 +38,13 @@ export class UsersListComponent implements OnInit {
 
   updateUser(userId: string) {
     this.router.navigateByUrl(`users/form/${userId}`);
+  }
+
+  getCountryName(data: string)
+  {
+     countries.registerLocale(require("i18n-iso-countries/langs/en.json"));
+
+    return countries.getName(data, "en");
   }
 
   onDelete(userId: string) {
@@ -69,6 +78,7 @@ export class UsersListComponent implements OnInit {
     this.usersService.getUsers().subscribe((users) => {
       this.users = users;
       console.log(this.users);
+
     });
   }
 }

@@ -37,7 +37,7 @@
               <p-tag *ngIf="user.isAdmin" icon="pi pi-check" severity="success" />
               <p-tag *ngIf="!user.isAdmin" icon="pi pi-times" severity="danger" />
             </td>
-            <td>{{ user.country }}</td>
+            <td>{{ getCountryName(user.country) }}</td>
              <td>
               <p-button  styleClass="p-button-danger p-mr-2" icon="pi pi-trash" (click)="onDelete(user.id)"/>
               <p-button styleClass="p-button-success"icon="pi pi-pencil" (click)="updateUser(user.id)"/>
