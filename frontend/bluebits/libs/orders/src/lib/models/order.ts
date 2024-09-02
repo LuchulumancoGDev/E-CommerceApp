@@ -1,4 +1,5 @@
 import { OrderItem } from "./orderItem";
+import { User } from '../../../../users/src/lib/models/user';
 
 export class Order {
   id?: string;
@@ -11,7 +12,7 @@ export class Order {
   phone?: string;
   status?: string;
   totalPrice?: string;
-  user?: string;
+  user?: User;
   dateOrdered?: string;
 }
 
