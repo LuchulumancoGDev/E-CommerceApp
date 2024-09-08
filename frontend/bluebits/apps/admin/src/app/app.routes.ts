@@ -64,6 +64,7 @@ export const appRoutes: Route[] = [
         path: 'orders/:id',
         component: OrdersDetailComponent
       },
+
     ]
   }
 ];
