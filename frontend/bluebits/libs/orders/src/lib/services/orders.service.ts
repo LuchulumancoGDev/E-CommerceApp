@@ -21,7 +21,13 @@ export class OrderService {
     return this.http.get<Order>(`${this.baseUrl}/${OrderId}`)
   }
 
+  createOrder(Order: Order): Observable<Order> {
+    return this.http.post<Order>(`${this.baseUrl}`, Order)
+  }
 
+ updateOrder(orderStatus: {status:string}, orderId?:string): Observable<Order> {
+    return this.http.put<Order>(`${this.baseUrl}/${orderId}`,orderStatus)
+  }
 
 
 

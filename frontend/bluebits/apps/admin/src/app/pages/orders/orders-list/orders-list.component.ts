@@ -8,14 +8,19 @@ import { CardModule } from 'primeng/card';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
+import { ORDER_STATUS } from '../order.constants';
+
+
+
 
 @Component({
   selector: 'admin-orders-list',
   standalone: true,
   providers:[MessageService, ConfirmationService],
-  imports: [CardModule, ToolbarModule,CommonModule,ConfirmDialogModule,ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
+  imports: [CardModule,TagModule, ToolbarModule,CommonModule,ConfirmDialogModule,ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
   templateUrl: './orders-list.component.html'
 
 })
@@ -23,7 +28,7 @@ export class OrdersListComponent implements OnInit {
 
 
   orders: Order[] =[] ;
-
+  orderStatus = ORDER_STATUS;
   constructor(
     private orderService: OrderService,
     private confirmationService: ConfirmationService,
@@ -46,10 +51,38 @@ export class OrdersListComponent implements OnInit {
 
   }
 
-  onDelete(arg0: any) {
-throw new Error('Method not implemented.');
-}
-showOrder(arg0: any) {
-throw new Error('Method not implemented.');
-}
+  onDelete(orderId: string) {
+this.confirmationService.confirm({
+        message: 'Do you want to delete this record?',
+        header: 'Delete Confirmation',
+        icon: 'pi pi-info-circle',
+        acceptButtonStyleClass: "p-button-danger p-button-text",
+        rejectButtonStyleClass: "p-button-text p-button-text",
+        acceptIcon: "none",
+        rejectIcon: "none",
+
+        accept: () => {
+            this.orderService.deleteOrder(orderId).subscribe(
+                r => {
+                     this._getOrders();
+                    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Order is deleted' });
+                },
+                (error) => {
+                    this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Category has not been deleted' });
+              }
+
+          );
+   
+
+        },
+        reject: () => {
+            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected' });
+        }
+    });
+  }
+
+showOrder(orderId: any) {
+  this.router.navigateByUrl(`orders/${orderId}`)
+  }
+
 }
