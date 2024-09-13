@@ -4,29 +4,38 @@
       <div class="p-col-6 image-column">
         <img src="assets/images/login-page.jpg" alt="Login Page Image" />
       </div>
-      <div class="p-col-6 content-column">
-        <h3>Welcome!</h3>
-        <h2>Login Page</h2>
-        <form>
-          <div class="p-grid">
-            <div class="p-col-12">
+      <div class="p-col-6 content-column p-p-6">
+        <h3 style="color: black; padding-bottom: 10px;">Welcome!</h3>
+        <h2 style="color: black; padding-bottom: 20px;">Login Page</h2>
+        <form [formGroup]="loginFormGroup">
+          <div class="row p-mt-4">
+            <div class="p-col-12" style="padding-bottom: 15px;">
               <p-inputGroup>
                 <p-inputGroupAddon>
                   <i class="pi pi-user"></i>
                 </p-inputGroupAddon>
-                <input pInputText placeholder="Email" />
+                <input pInputText formControlName="email" placeholder="Email" />
               </p-inputGroup>
-            </div> <br>
-            <div class="p-col-12">
+            </div>
+            <small *ngIf="loginForm['email'].invalid && isSubmitted" class="p-error">
+              <span *ngIf="loginForm['email'].errors?.['required']">Email is required</span>
+              <span *ngIf="loginForm['email'].errors?.['email']">Email is invalid</span>
+            </small>
+
+            <div class="p-col-12" style="padding-bottom: 15px;">
               <p-inputGroup>
                 <p-inputGroupAddon>
                   <i class="pi pi-lock"></i>
                 </p-inputGroupAddon>
-                <input pInputText placeholder="Email" />
+                <input pInputText type="password" formControlName="password" placeholder="Password" />
               </p-inputGroup>
             </div>
-            <div class="p-col-12">
-              <!-- Input fields or other content here -->
+            <small *ngIf="loginForm['password'].invalid && isSubmitted" class="p-error">
+              <span *ngIf="loginForm['password'].errors?.['required']">Password is required</span>
+            </small>
+
+            <div class="p-col-12" style="padding-top: 20px;">
+              <p-button label="Submit" styleClass="full-btn" (onClick)="onSubmit()" />
             </div>
           </div>
         </form>
