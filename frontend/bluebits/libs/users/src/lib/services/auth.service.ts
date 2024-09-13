@@ -12,6 +12,6 @@ apiUrlUsers = environment.apiUrl + 'users';
   constructor(private http:HttpClient) { }
 
   login(email: string, password: string): Observable<User>{
-    return this.http.post(`${this.apiUrlUsers}/login`)
+    return this.http.post<User>(`${this.apiUrlUsers}/login`, {email,password})
   }
 }
