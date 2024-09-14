@@ -25,7 +25,7 @@
                 <p-tag [severity]="orderStatus[order.status].color"
                 [value]="orderStatus[order.status].label"  />
               </td>
-              <td>{{ order.totalPrice }}</td>
+              <td>{{ order.totalPrice|currency:'R' }}</td>
 
                <td>{{ order.dateOrdered |date:'short' }}</td>
 
