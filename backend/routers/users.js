@@ -71,7 +71,7 @@ router.post(`/register`, async (req, res) => {
 
 router.post(`/login`, async (req, res) => {
     try {
-    
+
         const user = await User.findOne({email: req.body.email})
         const secret = process.env.secret
         if(!user){
@@ -82,7 +82,7 @@ router.post(`/login`, async (req, res) => {
         {
             const token = jwt.sign(
                 {
-                    userId: user.userId,
+                    userId: user._id,
                     isAdmin: user.isAdmin
                 },
                 secret,
