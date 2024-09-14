@@ -18,7 +18,7 @@ export const appRoutes: Route[] = [
     component: ShellComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent
       },
       {
@@ -68,5 +68,10 @@ export const appRoutes: Route[] = [
       },
 
     ]
+  },
+  {
+    path:'**',
+    redirectTo:'',
+    pathMatch:'full'
   }
 ];
