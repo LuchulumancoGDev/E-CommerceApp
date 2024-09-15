@@ -30,7 +30,7 @@ import { PaginatorModule } from 'primeng/paginator';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideClientHydration(),
-    provideRouter([...appRoutes, ...routes]),
+    provideRouter([ ...routes, ...appRoutes]),
     importProvidersFrom(
       CardModule,
       EditorModule,
