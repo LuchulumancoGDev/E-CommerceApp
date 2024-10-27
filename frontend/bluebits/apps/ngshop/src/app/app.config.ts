@@ -4,12 +4,13 @@ import { appRoutes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(appRoutes),
-    importProvidersFrom(BrowserModule, AccordionModule,BrowserAnimationsModule)
+    importProvidersFrom(BrowserModule, AccordionModule,BrowserAnimationsModule,HttpClientModule)
 
   ],
 };
