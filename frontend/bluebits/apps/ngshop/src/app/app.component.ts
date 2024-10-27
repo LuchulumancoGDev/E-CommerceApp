@@ -6,15 +6,15 @@ import { ProductListComponent } from "./pages/product-list/product-list.componen
 import { HeaderComponent } from "./shared/header/header.component";
 
 import { FooterComponent } from "./shared/footer/footer.component";
-import { UiComponent } from '@bluebits/ui';
-import { BannerComponent } from "../../../../libs/ui/src/lib/banner/banner.component";
+import { BannerComponent, UiComponent } from '@bluebits/ui';
+
 
 @Component({
     standalone: true,
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [NxWelcomeComponent, RouterModule, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent, UiComponent, BannerComponent]
+    imports: [NxWelcomeComponent, RouterModule, HomePageComponent, ProductListComponent, HeaderComponent, FooterComponent, BannerComponent]
 })
 export class AppComponent {
   title = 'ngshop';
