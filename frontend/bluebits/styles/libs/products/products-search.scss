@@ -19,7 +19,8 @@
         color: var(--surface-600);
         border: 0;
 
-        &:focus {
+        &:focus, 
+        &:active {
             border: 0;
             outline: none;
         }
