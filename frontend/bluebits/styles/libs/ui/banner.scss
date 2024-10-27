@@ -6,6 +6,19 @@
     display: flex;
     align-items: center;
     
+    &-button{
+        background-color: var(--surface-0);
+        color: $primary-color;
+        border:0;
+
+        &:hover{
+            background-color: var(--surface-0);
+            color: $primary-color;
+            border:0;
+    
+        }
+
+    }
 }
 
 .banner-text {
