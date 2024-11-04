@@ -67,7 +67,7 @@ onDelete(productId: string) {
 
     this.productsService.getProducts().subscribe((products) => {
       this.products = products;
-      console.log(this.products);
+ 
 
     });
 

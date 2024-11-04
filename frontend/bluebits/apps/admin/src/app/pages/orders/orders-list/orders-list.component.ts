@@ -44,7 +44,7 @@ export class OrdersListComponent implements OnInit {
   _getOrders() {
     this.orderService.getOrders().subscribe((orders) => {
       this.orders = orders;
-      console.log(this.orders );
+     
     })
 
 

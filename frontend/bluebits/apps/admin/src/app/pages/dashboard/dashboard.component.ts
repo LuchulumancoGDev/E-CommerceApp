@@ -27,7 +27,7 @@ export class DashboardComponent {
           total += parseFloat(priceStr);
         });
         this.totalSales = total;
-        console.log(this.orders, this.totalSales);
+ 
       });
 
       this.productsService.getProducts().subscribe((products) => {
