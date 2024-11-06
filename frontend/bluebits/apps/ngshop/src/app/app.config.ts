@@ -5,11 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { routes } from '@bluebits/products';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(appRoutes),
+    provideRouter([ ...routes, ...appRoutes]),
     importProvidersFrom(BrowserModule, AccordionModule,BrowserAnimationsModule,HttpClientModule)
 
   ],

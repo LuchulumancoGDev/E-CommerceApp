@@ -5,7 +5,7 @@ const router = express.Router();
 // Route to get all products from the database
 router.get(`/`, async (req, res) => {
     try {
-        debugger
+ 
         const categories = await Category.find({});
         res.json(categories);
     } catch (error) {
