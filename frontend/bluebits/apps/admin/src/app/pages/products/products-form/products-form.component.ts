@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesService, Category, Product, ProductsService } from '@bluebits/products';
 import { MessageService } from 'primeng/api';
@@ -101,17 +101,17 @@ onCancel() {
       });
   }
   private initForm() {
-    this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      brand: ['', Validators.required],
-      price: ['', Validators.required],
-      category: ['', Validators.required],
-      countInStock: ['', Validators.required],
-      description: ['', Validators.required],
-      richDescription: ['', ],
-      image: ['', Validators.required],
-      isFeatured: [false],
-    })
+    this.form = new FormGroup({
+      name: new FormControl('', Validators.required),
+      brand: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      countInStock: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      richDescription: new FormControl('Testing'),
+      image: new FormControl('', Validators.required),
+      isFeatured: new FormControl(false)
+    });
   }
   onSubmit() {
     this.isSubmited = true;
@@ -135,37 +135,30 @@ onCancel() {
 
 
   }
-  private _checkEditMode() {
-    this.route.params.subscribe(params => {
+   private _checkEditMode(): void {
+    this.route.params.subscribe((params) => {
       if (params['id']) {
         this.editmode = true;
         this.currentProductId = params['id'];
-        this.productsService.getProduct(params['id']).subscribe(product => {
-
-          console.log(product.richDescription);
-
-
-          this.form.controls['name'].setValue(product.name);
-          this.form.controls['category'].setValue(product.category?.id);
-          this.form.controls['brand'].setValue(product.brand);
-          this.form.controls['price'].setValue(product.price);
-          this.form.controls['countInStock'].setValue(product.countInStock);
-          this.form.controls['isFeatured'].setValue(product.isFeatured);
-          this.form.controls['description'].setValue(product.description);
-          this.form.controls['richDescription'].setValue(product.richDescription);
+        this.productsService.getProduct(params['id']).subscribe((product) => {
+          this.form.patchValue({
+            name: product.name,
+            brand: product.brand,
+            price: product.price,
+            category: product.category?.id,
+            countInStock: product.countInStock,
+            description: product.description,
+            richDescription: product.richDescription,
+            isFeatured: product.isFeatured
+          });
           this.imageDisplay = product.image;
-          this.form.controls['image'].setValidators([]);
-          this.form.controls['image'].updateValueAndValidity();
+          this.form.get('image')?.clearValidators();
+          this.form.get('image')?.updateValueAndValidity();
+  
 
-
-
-        })
-        console.log(this.form.controls['richDescription']);
-
-
-
+        });
       }
-    })
+    });
   }
 
 

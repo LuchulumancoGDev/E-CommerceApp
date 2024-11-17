@@ -7,7 +7,7 @@ import { Product } from '../../models/product';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'products-featured-products',
+  selector: 'lib-products-featured-products',
   standalone: true,
   imports: [ProductItemComponent,CommonModule,RouterModule],
   templateUrl: './featured-products.component.html',
@@ -20,9 +20,9 @@ export class FeaturedProductsComponent implements OnInit, OnDestroy{
   constructor(private prodService: ProductsService){
 
   }
-  
 
-   
+
+
   ngOnInit(): void {
     this._getFeaturedProducts()
   }
@@ -30,8 +30,8 @@ export class FeaturedProductsComponent implements OnInit, OnDestroy{
   private _getFeaturedProducts(){
     this.prodService.getFeaturedProducts(4).pipe(takeUntil(this.endSubs$)).subscribe(products=>{
       this.featuredProducts =products.products
-   
-      
+
+
     })
   }
 

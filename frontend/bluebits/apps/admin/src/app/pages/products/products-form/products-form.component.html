@@ -101,10 +101,10 @@
             <div class="formgrid grid">
                 <div class="field col">
               <label for="richDescription">Product Details</label>
-
-
-             <p-editor formControlName="richDescription" [style]="{ height: '320px' }">Hello</p-editor>
-
+              <p-editor
+                formControlName="richDescription"
+                [style]="{ height: '320px' }"
+              ></p-editor>
               <small *ngIf="form.controls.richDescription.invalid && isSubmited" class="p-error">Rich Description is required</small>
             </div>
              <div class="field col">

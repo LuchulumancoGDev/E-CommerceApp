@@ -4,7 +4,7 @@ import { Product } from '../../models/product';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'products-product-item',
+  selector: 'lib-products-product-item',
   standalone: true,
   imports: [ButtonModule,CommonModule],
   templateUrl: './product-item.component.html',
@@ -15,11 +15,11 @@ export class ProductItemComponent implements OnInit {
 @Input() product: Product | undefined
 
 constructor(){
-  
+
 }
 
 ngOnInit(): void {
-  
+
 }
 
 }

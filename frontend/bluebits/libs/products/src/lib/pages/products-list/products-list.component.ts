@@ -9,8 +9,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
-  selector: 'products-list',
+  selector: 'lib-products-list',
   standalone: true,
   imports: [CommonModule,ProductItemComponent, CheckboxModule, FormsModule],
   templateUrl: './products-list.component.html',
@@ -31,7 +32,7 @@ constructor(private productService: ProductsService, private categoryService: Ca
       params['categoryid'] ? this._getProducts([params['categoryid']]) : this._getProducts();
       params['categoryid'] ? (this.isCategoryPage = true) : (this.isCategoryPage = false);
     });
-  
+
     this._getCategories();
   }
 
@@ -52,8 +53,8 @@ constructor(private productService: ProductsService, private categoryService: Ca
     const selectedCategories = this.categories
       .filter((category) => category.checked)
       .map((category) => category.id)
-      .filter((id): id is string => id !== undefined); 
-  
+      .filter((id): id is string => id !== undefined);
+
     this._getProducts(selectedCategories);
   }
 
