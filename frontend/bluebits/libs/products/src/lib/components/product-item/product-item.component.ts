@@ -2,11 +2,12 @@ import { Component, Input,  OnInit } from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import { Product } from '../../models/product';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'lib-products-product-item',
   standalone: true,
-  imports: [ButtonModule,CommonModule],
+  imports: [ButtonModule,CommonModule,RouterModule],
   templateUrl: './product-item.component.html',
   styles: ``
 })
