@@ -8,11 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
+import { GalleryComponent } from '@bluebits/ui';
 
 @Component({
   selector: 'lib-products-product-page',
   standalone: true,
-  imports: [RatingModule,FormsModule, CommonModule, InputNumberModule, ButtonModule],
+  imports: [RatingModule,FormsModule, CommonModule, InputNumberModule, ButtonModule, GalleryComponent],
   templateUrl: './product-page.component.html',
   styles: ``
 })
