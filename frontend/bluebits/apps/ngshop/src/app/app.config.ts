@@ -6,12 +6,13 @@ import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { routes } from '@bluebits/products';
+import { Order } from '@bluebits/orders';
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter([ ...routes, ...appRoutes]),
-    importProvidersFrom(BrowserModule, AccordionModule,BrowserAnimationsModule,HttpClientModule)
+    importProvidersFrom(BrowserModule, AccordionModule,BrowserAnimationsModule,HttpClientModule,Order)
 
   ],
 };

@@ -7,6 +7,7 @@ import { HeaderComponent } from "./shared/header/header.component";
 
 import { FooterComponent } from "./shared/footer/footer.component";
 import { UiComponent } from '@bluebits/ui';
+import { CartService } from '@bluebits/orders';
 
 
 @Component({
@@ -18,4 +19,9 @@ import { UiComponent } from '@bluebits/ui';
 })
 export class AppComponent {
   title = 'ngshop';
+
+  constructor(cartService: CartService) {
+    cartService.initCartLocalStorage();
+
+  }
 }
