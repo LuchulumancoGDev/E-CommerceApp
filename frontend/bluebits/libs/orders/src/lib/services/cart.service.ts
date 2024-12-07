@@ -17,12 +17,30 @@ export class CartService {
     localStorage.setItem(CART_KEY,initialCartJson);
   }
 
+
+  getCart(): Cart{
+    const cartJsonString: string = localStorage.getItem(CART_KEY) || '{}';
+    const cart: Cart = JSON.parse(cartJsonString);
+    return cart
+  }
+
  setCartItem(cartItem: CartItem): Cart {
-    const cart: Cart = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
-    if (!cart.items) {
-        cart.items = [];
-    }
-    cart.items.push(cartItem);
+   const cart = this.getCart();
+   const cartItemExist = cart.items?.find((item) => item.productId === cartItem.productId);
+   if (cartItemExist)
+   {
+     cart.items?.map((item) => {
+       if (item.productId === cartItem.productId) {
+         item.quantity = (item.quantity || 0) + (cartItem.quantity || 0);
+         return item;
+       }
+     });
+   }
+   else {
+
+    cart.items?.push(cartItem);
+   }
+
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
     return cart;
 }

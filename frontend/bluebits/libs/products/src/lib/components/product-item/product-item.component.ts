@@ -29,7 +29,7 @@ ngOnInit(): void {
       productId: this.product?.id,
       quantity: 1
     }
-this.cartService.setCartItem(cartItem)
+    this.cartService.setCartItem(cartItem)
   }
 
 }
