@@ -9,12 +9,16 @@ export class CartService {
   constructor() { }
 
   initCartLocalStorage() {
-    const initialCart = {
-      items: []
-    }
-    const initialCartJson = JSON.stringify(initialCart)
-
+    const cart: Cart = this.getCart();
+    if (!cart.items) {
+      const initialCart = {
+        items: []
+      };
+      const initialCartJson = JSON.stringify(initialCart);
     localStorage.setItem(CART_KEY,initialCartJson);
+    }
+
+
   }
 
 
@@ -29,10 +33,10 @@ export class CartService {
    const cartItemExist = cart.items?.find((item) => item.productId === cartItem.productId);
    if (cartItemExist)
    {
-     cart.items?.map((item) => {
+     cart.items?.map(item => {
        if (item.productId === cartItem.productId) {
          item.quantity = (item.quantity || 0) + (cartItem.quantity || 0);
-         return item;
+
        }
      });
    }
