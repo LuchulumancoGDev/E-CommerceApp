@@ -18,6 +18,9 @@ import { GalleryComponent } from '@bluebits/ui';
   styles: ``
 })
 export class ProductPageComponent implements OnInit, OnDestroy {
+addProductToCart() {
+throw new Error('Method not implemented.');
+}
   quantity?: number ;
 
   product: Product | undefined;
@@ -34,9 +37,9 @@ export class ProductPageComponent implements OnInit, OnDestroy {
     })
   }
 
-  addProductToCart() {
+  // addProductToCart() {
 
-  }
+  // }
   private _getProducts(id: string) {
     this.productService.getProduct(id).pipe(takeUntil(this.endSubs$)).subscribe(response => {
       this.product = response;

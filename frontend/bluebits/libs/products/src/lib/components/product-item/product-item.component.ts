@@ -3,12 +3,15 @@ import {ButtonModule} from 'primeng/button';
 import { Product } from '../../models/product';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 import { CartItem, CartService } from '@bluebits/orders';
-
+import { RippleModule } from 'primeng/ripple';
 @Component({
   selector: 'lib-products-product-item',
   standalone: true,
-  imports: [ButtonModule,CommonModule,RouterModule],
+  imports: [ButtonModule, RippleModule, ToastModule, CommonModule, RouterModule],
+   providers: [MessageService],
   templateUrl: './product-item.component.html',
   styles: ``
 })
@@ -16,7 +19,7 @@ export class ProductItemComponent implements OnInit {
 
 @Input() product: Product | undefined
 
-constructor(private cartService: CartService){
+constructor(private cartService: CartService, private messageService: MessageService){
 
 }
 
@@ -30,6 +33,10 @@ ngOnInit(): void {
       quantity: 1
     }
     this.cartService.setCartItem(cartItem)
+    this.show();
   }
+   show() {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Successfully added item to cart' });
+    }
 
 }
