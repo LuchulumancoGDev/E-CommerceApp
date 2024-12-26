@@ -5,8 +5,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { CartItem, CartService } from '@bluebits/orders';
+
 import { RippleModule } from 'primeng/ripple';
+import { CartItem, CartService } from '@bluebits/orders';
 @Component({
   selector: 'lib-products-product-item',
   standalone: true,
@@ -36,7 +37,7 @@ ngOnInit(): void {
     this.show();
   }
    show() {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Successfully added item to cart' });
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Successfully added ${this.product?.name} item to cart` });
     }
 
 }
