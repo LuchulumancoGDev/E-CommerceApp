@@ -24,6 +24,7 @@
 
 //Libs
 @import './libs/products/products.scss';
+@import './libs/orders/orders.scss';
 @import '../styles/libs/ui/ui.scss';
 
 .container{
@@ -31,7 +32,7 @@
   padding: 0.938rem;
   margin: 0 auto;
   background-color: var(--surface-100);
-  
+
 }
 
 

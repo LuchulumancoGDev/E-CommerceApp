@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { BadgeModule } from 'primeng/badge';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'orders-cart-icon',
   standalone: true,
-  imports: [BadgeModule],
+  imports: [BadgeModule,RouterModule],
   templateUrl: './cart-icon.component.html',
   styles: ``
 })

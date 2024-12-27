@@ -1,0 +1,11 @@
+.cart-page {
+min-height: 500px;
+
+.cart {
+  &-shipping {
+    color: var(--green-700);
+    padding-bottom: 15px;
+  }
+}
+
+}
