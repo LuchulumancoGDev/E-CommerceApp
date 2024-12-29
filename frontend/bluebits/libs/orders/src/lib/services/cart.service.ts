@@ -18,7 +18,7 @@ export class CartService {
       const initialCartJson = JSON.stringify(initialCart);
     localStorage.setItem(CART_KEY,initialCartJson);
     }
-   
+
 
   }
 
@@ -51,4 +51,12 @@ export class CartService {
     return cart;
 }
 
+  deleteCartItem(productId: string) {
+    const cart = this.getCart();
+    const newCart = cart.items?.filter(item => item.productId !== productId);
+
+    cart.items = newCart;
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    this.cart$.next(cart);
+  }
 }

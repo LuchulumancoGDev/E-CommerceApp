@@ -18,12 +18,12 @@ export class ProductsService {
     if(categoriesFilter){
       params = params.append('categories', categoriesFilter.join(','))
 
-      
+
     }
     return this.http.get<Product[]>(this.baseUrl, {params:params})
   }
 
-  getProduct(productId: string): Observable<Product> {
+  getProduct(productId?: string): Observable<Product> {
     return this.http.get<Product>(`${this.baseUrl}/${productId}`)
   }
 

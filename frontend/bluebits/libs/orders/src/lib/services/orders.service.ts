@@ -5,11 +5,13 @@ import { Observable } from 'rxjs';
 import { environment } from '@env/environment';
 import { Order } from '../models/order';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
- baseUrl = environment.apiUrl + 'orders';
+  baseUrl = environment.apiUrl + 'orders';
+  baseProductsUrl = environment.apiUrl + 'products';
   constructor(private http: HttpClient) { }
 
 
@@ -24,7 +26,9 @@ export class OrderService {
   createOrder(Order: Order): Observable<Order> {
     return this.http.post<Order>(`${this.baseUrl}`, Order)
   }
-
+getProduct(productId?: string): Observable<any> {
+    return this.http.get<any>(`${this.baseProductsUrl}/${productId}`)
+  }
  updateOrder(orderStatus: {status:string}, orderId?:string): Observable<Order> {
     return this.http.put<Order>(`${this.baseUrl}/${orderId}`,orderStatus)
   }
