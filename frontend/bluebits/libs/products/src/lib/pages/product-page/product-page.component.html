@@ -4,7 +4,7 @@
     <div class="col-6">
       <lib-ui-gallery [images]="product.images"></lib-ui-gallery>
     </div>
-    <div class="col-6 product" >
+    <div class="col-6 product">
       <h2 class="product-name">{{ product.name }}</h2>
       <p class="product-desc">
         {{ product.description }}
@@ -19,48 +19,46 @@
       </div>
       <div class="product-price mb-2">
         {{ product.price | currency }}
-        <span class="price-before">{{ (product.price || 0) + 18 | currency }}</span>
+        <span class="price-before">{{
+          (product.price || 0) + 18 | currency
+        }}</span>
       </div>
       <div class="product-quantity">
         <div class="p-field p-col-12 p-md-3 p-p-0">
           <label class="mb-2 block font-bold" for="quantity">Quantity</label>
-        <p-inputNumber
-        class="mb-2"
-          [(ngModel)]="quantity"
-          inputId="quantity"
-          [showButtons]="true"
-          mode="decimal"
-          [min]="1"
-          [max]="100"
-        />
+          <p-inputNumber
+            class="mb-2"
+            [(ngModel)]="quantity"
+            inputId="quantity"
+            [showButtons]="true"
+            mode="decimal"
+            [min]="1"
+            [max]="100"
+          />
         </div>
-
       </div>
       <div class="product-actions">
         <button
-        pButton
-        pRipple
-        type="button"
-        label="Buy Now"
-        class="p-button-rounded mr-2"
-        >
-
-        </button>
+          pButton
+          pRipple
+          type="button"
+          label="Buy Now"
+          class="p-button-rounded mr-2"
+        ></button>
         <button
-        pButton
-        pRipple
-        type="button"
-        label="Add to Cart"
-        class="p-button-rounded"
-        (click)="addProductToCart()">
-
-        </button>
+          pButton
+          pRipple
+          type="button"
+          label="Add to Cart"
+          class="p-button-rounded"
+          (click)="addProductToCart()"
+        ></button>
       </div>
     </div>
   </div>
   <div class="grid product-rich-desc">
     <div class="col-12">
-     <div [innerHTML]="product.richDescription"></div>
+      <div [innerHTML]="product.richDescription"></div>
     </div>
   </div>
 </div>

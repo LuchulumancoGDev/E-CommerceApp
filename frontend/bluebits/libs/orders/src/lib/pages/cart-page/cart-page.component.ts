@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @Component({
   selector: 'orders-cart-page',
   standalone: true,
-  imports: [ButtonModule,CommonModule],
+  imports: [ButtonModule,CommonModule,InputNumberModule],
   templateUrl: './cart-page.component.html',
   styles: ``
 })
