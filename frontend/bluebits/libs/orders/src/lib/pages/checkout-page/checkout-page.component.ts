@@ -119,7 +119,11 @@ countries: { id: string; name: string; }[] = [];
 
     this.orderService.createOrder(order).subscribe(() => {
       //redirect
-      console.log("Successful");
+      this.cartService.emptyCart();
+      this.router.navigate(['/success']);
+
+    }, () => {
+      console.log("Error something went wrong");
 
     })
   }
