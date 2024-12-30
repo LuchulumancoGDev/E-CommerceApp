@@ -14,8 +14,8 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorModule } from 'primeng/editor';
-import { routes } from 'libs/users/src/lib/lib.routes';
-import { JwtInterceptor } from '@bluebits/users';
+
+import { JwtInterceptor, usersRoutes } from '@bluebits/users';
 import { TagModule } from 'primeng/tag';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { DropdownModule } from 'primeng/dropdown';
@@ -30,7 +30,7 @@ import { PaginatorModule } from 'primeng/paginator';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideClientHydration(),
-    provideRouter([ ...routes, ...appRoutes]),
+    provideRouter([ ...usersRoutes, ...appRoutes]),
     importProvidersFrom(
       CardModule,
       EditorModule,
