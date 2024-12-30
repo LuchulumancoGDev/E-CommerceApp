@@ -11,7 +11,7 @@ import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
-import { ORDER_STATUS } from '../order.constants';
+import { ORDER_STATUS } from '@bluebits/orders';
 
 
 
@@ -44,7 +44,7 @@ export class OrdersListComponent implements OnInit {
   _getOrders() {
     this.orderService.getOrders().subscribe((orders) => {
       this.orders = orders;
-     
+
     })
 
 
@@ -72,7 +72,7 @@ this.confirmationService.confirm({
               }
 
           );
-   
+
 
         },
         reject: () => {

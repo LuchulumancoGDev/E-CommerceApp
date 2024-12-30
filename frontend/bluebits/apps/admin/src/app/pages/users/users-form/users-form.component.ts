@@ -78,7 +78,7 @@ onCancel() {
     this.usersService.createUser(this.form.value).subscribe(
         response => {
             this.messageService.add({ severity: 'success', summary: 'Success', detail: 'User created successfully.' });
-            this.location.back(); 
+            this.location.back();
         },
         error => {
             this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to create user.' });
@@ -101,13 +101,13 @@ updateUser() {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      country: ['', Validators.required],
+      country: [''],
       password: ['', Validators.required],
       phone: ['', Validators.required],
-      street: ['', Validators.required],
+      street: [''],
       apartment: ['', ],
-      zip: ['', Validators.required],
-      city: ['', Validators.required],
+      zip: ['', ],
+      city: ['', ],
       isAdmin: [false],
     })
   }

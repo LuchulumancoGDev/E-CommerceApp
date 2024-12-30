@@ -12,8 +12,8 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { FieldsetModule } from 'primeng/fieldset';
 import { DropdownModule } from 'primeng/dropdown';
-import { Order, OrderService } from '@bluebits/orders';
-import { ORDER_STATUS } from '../order.constants';
+import { Order, OrderService, ORDER_STATUS} from '@bluebits/orders';
+
 import { FormsModule } from '@angular/forms';
 
 @Component({

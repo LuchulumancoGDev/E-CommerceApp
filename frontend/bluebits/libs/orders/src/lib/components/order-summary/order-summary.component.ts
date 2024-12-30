@@ -4,6 +4,7 @@ import { CartService } from '../../services/cart.service';
 import { OrderService } from '../../services/orders.service';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'orders-order-summary',
@@ -14,9 +15,12 @@ import { CommonModule } from '@angular/common';
 })
 export class OrderSummaryComponent implements OnInit, OnDestroy {
   endSubs$: Subject<any> = new Subject();
-  totalPrice=0;
+  totalPrice = 0;
+  isCheckout = false;
 
-  constructor(private cartService: CartService, private ordersService: OrderService) {}
+  constructor(private cartService: CartService, private ordersService: OrderService, private router: Router) {
+    this.router.url.includes('checkout') ? this.isCheckout = true : this.isCheckout = false;
+  }
 
   ngOnInit(): void {
     this._getOrderSummary();
@@ -41,5 +45,8 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
         });
       }
     });
+  }
+  navigateToCheckout() {
+    this.router.navigate(['/checkout']);
   }
 }

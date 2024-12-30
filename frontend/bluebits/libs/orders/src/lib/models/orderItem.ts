@@ -1,7 +1,7 @@
-import { Product } from "@bluebits/products";
+
 
 export class OrderItem {
-  product?: Product;
+  product?: any;
   quantity?: number;
 
 }
