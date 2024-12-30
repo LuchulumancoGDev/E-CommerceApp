@@ -29,14 +29,20 @@ export class CartService {
     return cart
   }
 
- setCartItem(cartItem: CartItem): Cart {
+ setCartItem(cartItem: CartItem, updateCartItem?:boolean): Cart {
    const cart = this.getCart();
    const cartItemExist = cart.items?.find((item) => item.productId === cartItem.productId);
    if (cartItemExist)
    {
      cart.items?.map(item => {
        if (item.productId === cartItem.productId) {
-         item.quantity = (item.quantity || 0) + (cartItem.quantity || 0);
+         if (updateCartItem) {
+           item.quantity = (cartItem.quantity || 0);
+         }
+         else {
+           item.quantity = (item.quantity || 0) + (cartItem.quantity || 0);
+         }
+
 
        }
      });

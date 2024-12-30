@@ -1,3 +1,4 @@
+<p-toast />
 <div class="cart-page">
   <div class="grid">
     <div class="col-8">
@@ -41,6 +42,8 @@
                 mode="decimal"
                 [min]="1"
                 [max]="100"
+                [(ngModel)]="cartItem.quantity"
+                (onInput)="updateCartItemQuantity($event, cartItem)"
               />
             </div>
             <div class="cart-item-subtotal">
@@ -51,6 +54,8 @@
         </div>
       </div>
     </div>
-    <div class="col-4">order summery</div>
+    <div class="col-4">
+      <orders-order-summary></orders-order-summary>
+    </div>
   </div>
 </div>

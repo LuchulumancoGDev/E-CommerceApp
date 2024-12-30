@@ -2,23 +2,27 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { InputNumberModule } from 'primeng/inputnumber';
+import { InputNumberInputEvent, InputNumberModule } from 'primeng/inputnumber';
 import { CartService } from '../../services/cart.service';
 
 import { OrderService } from '../../services/orders.service';
 import { CartItemDetailed } from '../../models/cart';
 import { MessageService } from 'primeng/api';
 import { Subject, takeUntil } from 'rxjs';
+import { OrderSummaryComponent } from "../../components/order-summary/order-summary.component";
+import { FormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'orders-cart-page',
   standalone: true,
-  imports: [ButtonModule, CommonModule, InputNumberModule],
+  imports: [ButtonModule, CommonModule, ToastModule, InputNumberModule, OrderSummaryComponent, FormsModule],
   providers: [MessageService],
   templateUrl: './cart-page.component.html',
   styles: ``
 })
 export class CartPageComponent implements OnInit,OnDestroy {
+
 
   cartItemsDetailed: CartItemDetailed[] = []
   cartCount = 0;
@@ -55,16 +59,24 @@ backToShop() {
 
   deleteCartItem(cartItem: CartItemDetailed) {
     this.cartService.deleteCartItem(cartItem.product.id);
-    this.show(cartItem.product.name);
+    this.show(cartItem.product.name, "deleted");
 
   }
 
-  show(product:string) {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Successfully deleted ${product} item to cart` });
+  show(product:string, action:string) {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Successfully ${action} ${product} item to cart` });
   }
 
    ngOnDestroy(): void {
      this.endSubs$.next(this.cartItemsDetailed);
      this.endSubs$.complete();
   }
+
+  updateCartItemQuantity($event: InputNumberInputEvent,cartItem: CartItemDetailed) {
+    this.cartService.setCartItem({
+      productId: cartItem.product.id,
+      quantity: $event.value as number ,
+    }, true)
+    this.show(cartItem.product.name, "updated");
+}
 }
