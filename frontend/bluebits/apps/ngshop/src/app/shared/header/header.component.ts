@@ -5,11 +5,9 @@ import { CartIconComponent } from '@bluebits/orders';
 
 
 @Component({
-  selector: 'ngshop-header',
-  standalone: true,
-  imports: [NavComponent, ProductsSearchComponent, CartIconComponent],
-  templateUrl: './header.component.html',
-
+    selector: 'ngshop-header',
+    imports: [NavComponent, ProductsSearchComponent, CartIconComponent],
+    templateUrl: './header.component.html'
 })
 export class HeaderComponent {
 

@@ -13,12 +13,11 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { PaginatorModule } from 'primeng/paginator';
 
 @Component({
-  selector: 'admin-products-list',
-  standalone: true,
-  providers:[MessageService, ConfirmationService],
-  imports: [CardModule, ToolbarModule,CommonModule,PaginatorModule,ConfirmDialogModule,ColorPickerModule,ToastModule, ButtonModule ,TableModule,RouterModule],
-  templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.css'
+    selector: 'admin-products-list',
+    providers: [MessageService, ConfirmationService],
+    imports: [CardModule, ToolbarModule, CommonModule, PaginatorModule, ConfirmDialogModule, ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
+    templateUrl: './products-list.component.html',
+    styleUrl: './products-list.component.css'
 })
 export class ProductsListComponent implements OnInit{
   products:any;

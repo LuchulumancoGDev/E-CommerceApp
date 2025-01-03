@@ -13,13 +13,12 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'users-login',
-  standalone: true,
-  imports: [InputGroupAddonModule
-    ,InputGroupModule,InputTextModule, CommonModule,PasswordModule,ButtonModule,FormsModule,ReactiveFormsModule
-  ],
-  templateUrl: './login.component.html',
-  styles: ``
+    selector: 'users-login',
+    imports: [InputGroupAddonModule,
+        InputGroupModule, InputTextModule, CommonModule, PasswordModule, ButtonModule, FormsModule, ReactiveFormsModule
+    ],
+    templateUrl: './login.component.html',
+    styles: ``
 })
 export class LoginComponent implements OnInit {
   authError=false;

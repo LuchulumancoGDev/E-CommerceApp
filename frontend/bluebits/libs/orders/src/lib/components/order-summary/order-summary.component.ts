@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'orders-order-summary',
-  standalone: true,
-  imports: [ButtonModule, CommonModule],
-  templateUrl: './order-summary.component.html',
-  styles: ``
+    selector: 'orders-order-summary',
+    imports: [ButtonModule, CommonModule],
+    templateUrl: './order-summary.component.html',
+    styles: ``
 })
 export class OrderSummaryComponent implements OnInit, OnDestroy {
   endSubs$: Subject<any> = new Subject();

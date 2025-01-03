@@ -4,11 +4,10 @@ import { BadgeModule } from 'primeng/badge';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'orders-cart-icon',
-  standalone: true,
-  imports: [BadgeModule,RouterModule],
-  templateUrl: './cart-icon.component.html',
-  styles: ``
+    selector: 'orders-cart-icon',
+    imports: [BadgeModule, RouterModule],
+    templateUrl: './cart-icon.component.html',
+    styles: ``
 })
 export class CartIconComponent  implements OnInit{
   cartCount: number | undefined;

@@ -24,11 +24,10 @@ import * as countriesLib from 'i18n-iso-countries';
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
 @Component({
-  selector: 'admin-users-form',
-  standalone: true,
-  providers:[MessageService],
-  imports: [CardModule, EditorModule,InputMaskModule,DropdownModule,InputSwitchModule,InputTextareaModule,InputNumberModule,ToolbarModule,CommonModule,ColorPickerModule, ToastModule, ButtonModule,InputTextModule,FormsModule, ReactiveFormsModule],
-  templateUrl: './users-form.component.html'
+    selector: 'admin-users-form',
+    providers: [MessageService],
+    imports: [CardModule, EditorModule, InputMaskModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule],
+    templateUrl: './users-form.component.html'
 })
 export class UsersFormComponent implements OnInit{
 

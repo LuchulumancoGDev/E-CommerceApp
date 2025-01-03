@@ -12,12 +12,11 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ColorPickerModule } from 'primeng/colorpicker';
 
 @Component({
-  selector: 'admin-categories-list',
-  standalone: true,
-   providers:[MessageService, ConfirmationService],
-  imports: [CardModule, ToolbarModule,CommonModule,ConfirmDialogModule,ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
-  templateUrl: './categories-list.component.html',
-  styles: ``
+    selector: 'admin-categories-list',
+    providers: [MessageService, ConfirmationService],
+    imports: [CardModule, ToolbarModule, CommonModule, ConfirmDialogModule, ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
+    templateUrl: './categories-list.component.html',
+    styles: ``
 })
 export class CategoriesListComponent implements OnInit{
 

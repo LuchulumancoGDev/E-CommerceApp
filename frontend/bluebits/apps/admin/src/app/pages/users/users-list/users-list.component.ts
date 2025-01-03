@@ -16,11 +16,10 @@ import * as countries from 'i18n-iso-countries';
 
 declare const require: (arg0: string) => countries.LocaleData;
 @Component({
-  selector: 'admin-users-list',
-  standalone: true,
-  providers: [MessageService, ConfirmationService],
-  imports: [CardModule, ToolbarModule, CommonModule, TagModule,ConfirmDialogModule, ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
-  templateUrl: './users-list.component.html'
+    selector: 'admin-users-list',
+    providers: [MessageService, ConfirmationService],
+    imports: [CardModule, ToolbarModule, CommonModule, TagModule, ConfirmDialogModule, ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
+    templateUrl: './users-list.component.html'
 })
 export class UsersListComponent implements OnInit {
   users: any;

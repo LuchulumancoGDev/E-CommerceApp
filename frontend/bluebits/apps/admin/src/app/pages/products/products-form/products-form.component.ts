@@ -20,12 +20,11 @@ import { timer } from 'rxjs';
 
 
 @Component({
-  selector: 'admin-products-form',
-  standalone: true,
-   providers:[MessageService],
-  imports: [CardModule, EditorModule,DropdownModule,InputSwitchModule,InputTextareaModule,InputNumberModule,ToolbarModule,CommonModule,ColorPickerModule, ToastModule, ButtonModule,InputTextModule,FormsModule, ReactiveFormsModule],
-  templateUrl: './products-form.component.html',
-  styleUrl: './products-form.component.css'
+    selector: 'admin-products-form',
+    providers: [MessageService],
+    imports: [CardModule, EditorModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule],
+    templateUrl: './products-form.component.html',
+    styleUrl: './products-form.component.css'
 })
 export class ProductsFormComponent implements OnInit{
   categories: Category[] | undefined;

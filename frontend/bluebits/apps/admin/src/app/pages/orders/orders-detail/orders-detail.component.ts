@@ -17,12 +17,11 @@ import { Order, OrderService, ORDER_STATUS} from '@bluebits/orders';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'admin-orders-detail',
-  standalone: true,
-  providers:[MessageService, ConfirmationService],
-  imports: [CardModule,TagModule,FormsModule,DropdownModule, FieldsetModule, ToolbarModule,CommonModule,ConfirmDialogModule,ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
-  templateUrl: './orders-detail.component.html',
-  styleUrl: './orders-detail.component.css'
+    selector: 'admin-orders-detail',
+    providers: [MessageService, ConfirmationService],
+    imports: [CardModule, TagModule, FormsModule, DropdownModule, FieldsetModule, ToolbarModule, CommonModule, ConfirmDialogModule, ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
+    templateUrl: './orders-detail.component.html',
+    styleUrl: './orders-detail.component.css'
 })
 export class OrdersDetailComponent implements OnInit {
   order?: Order;

@@ -11,11 +11,10 @@ import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
-  selector: 'lib-products-list',
-  standalone: true,
-  imports: [CommonModule,ProductItemComponent, CheckboxModule, FormsModule],
-  templateUrl: './products-list.component.html',
-  styles: ``
+    selector: 'lib-products-list',
+    imports: [CommonModule, ProductItemComponent, CheckboxModule, FormsModule],
+    templateUrl: './products-list.component.html',
+    styles: ``
 })
 export class ProductsListComponent implements OnInit {
 

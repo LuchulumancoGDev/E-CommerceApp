@@ -17,12 +17,10 @@ import { ORDER_STATUS } from '@bluebits/orders';
 
 
 @Component({
-  selector: 'admin-orders-list',
-  standalone: true,
-  providers:[MessageService, ConfirmationService],
-  imports: [CardModule,TagModule, ToolbarModule,CommonModule,ConfirmDialogModule,ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
-  templateUrl: './orders-list.component.html'
-
+    selector: 'admin-orders-list',
+    providers: [MessageService, ConfirmationService],
+    imports: [CardModule, TagModule, ToolbarModule, CommonModule, ConfirmDialogModule, ColorPickerModule, ToastModule, ButtonModule, TableModule, RouterModule],
+    templateUrl: './orders-list.component.html'
 })
 export class OrdersListComponent implements OnInit {
 

@@ -7,11 +7,10 @@ import { Product } from '../../models/product';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-  selector: 'lib-products-featured-products',
-  standalone: true,
-  imports: [ProductItemComponent,CommonModule,RouterModule],
-  templateUrl: './featured-products.component.html',
-  styles: ``
+    selector: 'lib-products-featured-products',
+    imports: [ProductItemComponent, CommonModule, RouterModule],
+    templateUrl: './featured-products.component.html',
+    styles: ``
 })
 export class FeaturedProductsComponent implements OnInit, OnDestroy{
 

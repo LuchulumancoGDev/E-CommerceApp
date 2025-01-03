@@ -14,12 +14,11 @@ import { FormsModule } from '@angular/forms';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
-  selector: 'orders-cart-page',
-  standalone: true,
-  imports: [ButtonModule, CommonModule, ToastModule, InputNumberModule, OrderSummaryComponent, FormsModule],
-  providers: [MessageService],
-  templateUrl: './cart-page.component.html',
-  styles: ``
+    selector: 'orders-cart-page',
+    imports: [ButtonModule, CommonModule, ToastModule, InputNumberModule, OrderSummaryComponent, FormsModule],
+    providers: [MessageService],
+    templateUrl: './cart-page.component.html',
+    styles: ``
 })
 export class CartPageComponent implements OnInit,OnDestroy {
 

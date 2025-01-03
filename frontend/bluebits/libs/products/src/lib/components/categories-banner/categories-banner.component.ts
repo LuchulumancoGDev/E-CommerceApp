@@ -7,11 +7,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'lib-products-categories-banner',
-  standalone: true,
-  imports: [CommonModule,RouterModule,CarouselModule],
-  templateUrl: './categories-banner.component.html',
-  styles: ``
+    selector: 'lib-products-categories-banner',
+    imports: [CommonModule, RouterModule, CarouselModule],
+    templateUrl: './categories-banner.component.html',
+    styles: ``
 })
 export class CategoriesBannerComponent implements OnInit, OnDestroy {
 

@@ -13,12 +13,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ColorPickerModule } from 'primeng/colorpicker';
 
 @Component({
-  selector: 'admin-categories-form',
-  standalone: true,
-  providers:[MessageService],
-  imports: [CardModule, ToolbarModule,CommonModule,ColorPickerModule, ToastModule, ButtonModule,InputTextModule,FormsModule,ReactiveFormsModule],
-  templateUrl: './categories-form.component.html',
-  styles: ``
+    selector: 'admin-categories-form',
+    providers: [MessageService],
+    imports: [CardModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule],
+    templateUrl: './categories-form.component.html',
+    styles: ``
 })
 export class CategoriesFormComponent implements OnInit{
   isSubmited = false;

@@ -3,11 +3,10 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '@bluebits/users';
 
 @Component({
-  selector: 'admin-sidebar',
-  standalone: true,
-  imports: [RouterModule],
-  templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.scss',
+    selector: 'admin-sidebar',
+    imports: [RouterModule],
+    templateUrl: './sidebar.component.html',
+    styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
   constructor(private authService: AuthService) {}

@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'orders-thank-you',
-  standalone: true,
-  imports: [ButtonModule, CommonModule],
-  templateUrl: './thank-you.component.html',
-  styleUrl: './thank-you.component.css'
+    selector: 'orders-thank-you',
+    imports: [ButtonModule, CommonModule],
+    templateUrl: './thank-you.component.html',
+    styleUrl: './thank-you.component.css'
 })
 export class ThankYouComponent {
 

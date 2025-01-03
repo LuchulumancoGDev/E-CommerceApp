@@ -9,12 +9,11 @@ import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { CartItem, CartService } from '@bluebits/orders';
 @Component({
-  selector: 'lib-products-product-item',
-  standalone: true,
-  imports: [ButtonModule, RippleModule, ToastModule, CommonModule, RouterModule],
-   providers: [MessageService],
-  templateUrl: './product-item.component.html',
-  styles: ``
+    selector: 'lib-products-product-item',
+    imports: [ButtonModule, RippleModule, ToastModule, CommonModule, RouterModule],
+    providers: [MessageService],
+    templateUrl: './product-item.component.html',
+    styles: ``
 })
 export class ProductItemComponent implements OnInit {
 

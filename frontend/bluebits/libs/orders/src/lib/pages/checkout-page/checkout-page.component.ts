@@ -28,12 +28,11 @@ import { OrderService } from '../../services/orders.service';
 import { ORDER_STATUS } from '../../order.constants';
 
 @Component({
-  selector: 'orders-checkout-page',
-  standalone: true,
-   providers:[MessageService],
-  imports: [CardModule, EditorModule, InputMaskModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule, OrderSummaryComponent],
-  templateUrl: './checkout-page.component.html',
-  styles: ``
+    selector: 'orders-checkout-page',
+    providers: [MessageService],
+    imports: [CardModule, EditorModule, InputMaskModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule, OrderSummaryComponent],
+    templateUrl: './checkout-page.component.html',
+    styles: ``
 })
 export class CheckoutPageComponent implements OnInit {
   constructor(

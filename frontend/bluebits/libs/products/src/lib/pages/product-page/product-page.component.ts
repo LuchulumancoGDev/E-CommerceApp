@@ -14,12 +14,11 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
-  selector: 'lib-products-product-page',
-  standalone: true,
-  imports: [RatingModule,FormsModule, CommonModule,ToastModule, InputNumberModule, ButtonModule, GalleryComponent],
-  providers: [MessageService],
-  templateUrl: './product-page.component.html',
-  styles: ``
+    selector: 'lib-products-product-page',
+    imports: [RatingModule, FormsModule, CommonModule, ToastModule, InputNumberModule, ButtonModule, GalleryComponent],
+    providers: [MessageService],
+    templateUrl: './product-page.component.html',
+    styles: ``
 })
 export class ProductPageComponent implements OnInit, OnDestroy {
 

@@ -5,7 +5,6 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { SidebarComponent } from "./shared/sidebar/sidebar.component";
 
 @Component({
-    standalone: true,
     selector: 'admin-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.sass',

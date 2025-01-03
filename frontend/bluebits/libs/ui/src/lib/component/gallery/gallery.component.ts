@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ui-gallery',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './gallery.component.html',
-  styles: ``
+    selector: 'lib-ui-gallery',
+    imports: [CommonModule],
+    templateUrl: './gallery.component.html',
+    styles: ``
 })
 export class GalleryComponent implements OnInit {
 

@@ -8,10 +8,9 @@ import { FeaturedProductsComponent } from "../../../../../../libs/products/src/l
 
 @Component({
     selector: 'app-home-page',
-    standalone: true,
     templateUrl: './home-page.component.html',
     styleUrl: './home-page.component.css',
-    imports: [HeaderComponent, FooterComponent, AccordionModule, BannerComponent,CategoriesBannerComponent, FeaturedProductsComponent]
+    imports: [HeaderComponent, FooterComponent, AccordionModule, BannerComponent, CategoriesBannerComponent, FeaturedProductsComponent]
 })
 export class HomePageComponent {
 

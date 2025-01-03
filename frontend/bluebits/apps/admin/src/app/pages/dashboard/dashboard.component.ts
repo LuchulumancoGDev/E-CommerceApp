@@ -6,11 +6,9 @@ import { ProductsService } from '@bluebits/products';
 import { UsersService } from '@bluebits/users';
 
 @Component({
-  selector: 'admin-dashboard',
-  standalone: true,
-  imports: [CommonModule,CardModule],
-  templateUrl: './dashboard.component.html',
-
+    selector: 'admin-dashboard',
+    imports: [CommonModule, CardModule],
+    templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
   orders: Order[] =[] ;

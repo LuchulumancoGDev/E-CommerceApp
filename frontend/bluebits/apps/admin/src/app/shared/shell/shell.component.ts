@@ -4,10 +4,9 @@ import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
     selector: 'admin-shell',
-    standalone: true,
     templateUrl: './shell.component.html',
     styleUrl: './shell.component.scss',
-    imports: [SidebarComponent,RouterModule]
+    imports: [SidebarComponent, RouterModule]
 })
 export class ShellComponent {
 
