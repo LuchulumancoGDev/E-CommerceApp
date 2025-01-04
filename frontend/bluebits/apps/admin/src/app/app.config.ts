@@ -28,12 +28,14 @@ import { PaginatorModule } from 'primeng/paginator';
 import { provideState, provideStore, StoreModule } from '@ngrx/store';
 import { EffectsModule, provideEffects } from '@ngrx/effects';
 import { UsersEffects } from 'libs/users/src/lib/state/users.effects';
+import { provideNgxStripe } from 'ngx-stripe';
 
 
 
 
 export const appConfig: ApplicationConfig = {
   providers: [provideClientHydration(),
+    provideNgxStripe('pk_test_51QdYdBP1oGOAo5TtKpj1aD25lrNRvM5qSdFIllmXgnoBkqbPQJRpAnIq7AiolfOKf2MDnjbyF1UTWNPu20I1fjJK005SImLr5O'),
      provideStore(),
   provideState(USERS_FEATURE_KEY, usersReducer),
   provideEffects([UsersEffects]),

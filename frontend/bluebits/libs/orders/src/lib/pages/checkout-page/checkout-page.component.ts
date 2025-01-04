@@ -27,6 +27,7 @@ import { Cart } from '../../models/cart';
 import { OrderService } from '../../services/orders.service';
 import { ORDER_STATUS } from '../../order.constants';
 import { Subject, take, takeUntil } from 'rxjs';
+import { StripeService } from 'ngx-stripe';
 
 @Component({
     selector: 'orders-checkout-page',
@@ -42,7 +43,8 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder,
     private cartService: CartService,
     private orderService: OrderService,
-    private messageService: MessageService
+    private messageService: MessageService, 
+    
   ) {}
 
   checkoutFormGroup!: FormGroup;
@@ -57,7 +59,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
      this._autoFillUserData();
     this._getCartItems();
     this._getCountries();
-     
+
   }
 
     ngOnDestroy(): void {
@@ -131,29 +133,31 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const order: Order={
-        orderItems: this.orderItems,
-        shippingAddress1: this.checkoutForm['street'].value,
-        shippingAddress2: this.checkoutForm['apartment'].value,
-        city: this.checkoutForm['city'].value,
-        zip: this.checkoutForm['zip'].value,
-        country: this.checkoutForm['country'].value,
-        phone: this.checkoutForm['phone'].value,
-        status: Object.keys(ORDER_STATUS)[0],
-        user: this.userId,
-        dateOrdered: Date.now().toString(),
-    }
+    
+    const order: Order = {
+      orderItems: this.orderItems,
+      shippingAddress1: this.checkoutForm['street'].value,
+      shippingAddress2: this.checkoutForm['apartment'].value,
+      city: this.checkoutForm['city'].value,
+      zip: this.checkoutForm['zip'].value,
+      country: this.checkoutForm['country'].value,
+      phone: this.checkoutForm['phone'].value,
+      status: Object.keys(ORDER_STATUS)[0],
+      user: this.userId,
+      dateOrdered: Date.now().toString(),
+    };
 
-    this.orderService.createOrder(order).subscribe(() => {
-      //redirect
-      this.show("placed");
-      this.cartService.emptyCart();
-      this.router.navigate(['/success']);
+    this.orderService.cacheOrderData(order);
 
-    }, () => {
-      console.log("Error something went wrong");
+   this.orderService.createCheckoutSession(this.orderItems).subscribe((error) => {
+      if (error)
+      {
+        console.log('error in redirect to payment');
+        
+      }
+      
+    });  
 
-    })
   }
 
   get checkoutForm() {
