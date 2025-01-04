@@ -14,7 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { EditorModule } from 'primeng/editor';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputTextarea } from 'primeng/inputtextarea';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputMaskModule } from 'primeng/inputmask';
@@ -30,7 +30,7 @@ import { ORDER_STATUS } from '../../order.constants';
 @Component({
     selector: 'orders-checkout-page',
     providers: [MessageService],
-    imports: [CardModule, EditorModule, InputMaskModule, DropdownModule, InputSwitchModule, InputTextareaModule, InputNumberModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule, OrderSummaryComponent],
+    imports: [CardModule, EditorModule, InputMaskModule, DropdownModule, InputSwitchModule, InputTextModule, InputNumberModule, ToolbarModule, CommonModule, ColorPickerModule, ToastModule, ButtonModule, InputTextModule, FormsModule, ReactiveFormsModule, OrderSummaryComponent],
     templateUrl: './checkout-page.component.html',
     styles: ``
 })

@@ -1,31 +1,31 @@
 //Base
-@import 'normalize.css/normalize.css';
-@import '../styles/base/colors.scss';
-@import '../styles/base/fonts.scss';
-@import './base/mixins.scss';
+@import 'normalize.css/normalize.css' ;
+@import '../styles/base/colors.scss' ;
+@import '../styles/base/fonts.scss' ;
+@import './base/mixins.scss' ;
 
 
 //Pages
-@import './apps/shop/pages/home-page.scss';
-@import './apps/shop/pages/products-lists-page.scss';
+@import './apps/shop/pages/home-page.scss' ;
+@import './apps/shop/pages/products-lists-page.scss' ;
 
 //Library
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
-@import "primeicons/primeicons.css";
-@import 'primeflex/primeflex.scss';
-@import 'animate.css/animate.css';
-@import '../styles/base/configuration.scss';
+@import "primeng/resources/themes/lara-light-blue/theme.css" ;
+@import "primeng/resources/primeng.css" ;
+@import "primeicons/primeicons.css" ;
+@import 'primeflex/primeflex.scss' ;
+@import 'animate.css/animate.css' ;
+@import '../styles/base/configuration.scss' ;
 
 //Shared
-@import './apps/shop/shared/header.scss';
-@import './apps/shop/shared/footer.scss';
-@import './apps/shop/shared/nav.scss';
+@import './apps/shop/shared/header.scss' ;
+@import './apps/shop/shared/footer.scss' ;
+@import './apps/shop/shared/nav.scss' ;
 
 //Libs
-@import './libs/products/products.scss';
-@import './libs/orders/orders.scss';
-@import '../styles/libs/ui/ui.scss';
+@import './libs/products/products.scss' ;
+@import './libs/orders/orders.scss' ;
+@import '../styles/libs/ui/ui.scss' ;
 
 .container{
   width: 75rem;

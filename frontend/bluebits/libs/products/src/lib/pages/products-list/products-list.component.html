@@ -4,7 +4,8 @@
             <h4>Categories</h4>
             <div *ngFor="let category of categories" class="field-checkbox">
                 <p-checkbox [(ngModel)]="category.checked" [inputId]="category.id" [binary]="true"
-                    [label]="category.name" name="group" [value]="category" (ngModelChange)="categoryFilter()" />
+                    name="group" [value]="category" (ngModelChange)="categoryFilter()" />
+                    <label [for]="category.id" class="ml-2"> {{ category.name }} </label>
 
             </div>
         </div>
