@@ -20,18 +20,19 @@ export class ThankYouComponent implements OnInit {
   }
   ngOnInit(): void {
     const orderData = this.orderService.getCachedOrderData();
-    
+
      this.orderService.createOrder(orderData).subscribe(() => {
       //redirect
       this.show("placed");
-      this.cartService.emptyCart();
-      this.router.navigate(['/success']);
+       this.cartService.emptyCart();
+       this.orderService.removeCachedOrderData();
+      //this.router.navigate(['/success']);
 
     }, () => {
       console.log("Error something went wrong");
 
     })
-    
+
   }
 
   show(action:string) {

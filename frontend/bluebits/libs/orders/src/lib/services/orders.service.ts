@@ -56,4 +56,8 @@ getProduct(productId?: string): Observable<any> {
   getCachedOrderData():Order {
    return JSON.parse(localStorage.getItem('orderData') ?? '');
   }
+
+  removeCachedOrderData() {
+    localStorage.removeItem('orderData')
+  }
 }
