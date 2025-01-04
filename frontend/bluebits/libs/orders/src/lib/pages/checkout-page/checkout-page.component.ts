@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '@bluebits/users';
@@ -26,6 +26,7 @@ import { CartService } from '../../services/cart.service';
 import { Cart } from '../../models/cart';
 import { OrderService } from '../../services/orders.service';
 import { ORDER_STATUS } from '../../order.constants';
+import { Subject, take, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'orders-checkout-page',
@@ -34,26 +35,54 @@ import { ORDER_STATUS } from '../../order.constants';
     templateUrl: './checkout-page.component.html',
     styles: ``
 })
-export class CheckoutPageComponent implements OnInit {
+export class CheckoutPageComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private usersService: UsersService,
     private formBuilder: FormBuilder,
     private cartService: CartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private messageService: MessageService
   ) {}
+
   checkoutFormGroup!: FormGroup;
   isSubmitted = false;
   orderItems: OrderItem[] = [];
-  userId="609d65943373711346c5e950";
-countries: { id: string; name: string; }[] = [];
+  userId:string | undefined;
+  countries: { id: string; name: string; }[] = [];
+  unsubscribe$: Subject<any> = new Subject();
 
   ngOnInit(): void {
     this._initCheckoutForm();
+     this._autoFillUserData();
     this._getCartItems();
     this._getCountries();
+     
   }
 
+    ngOnDestroy(): void {
+      this.unsubscribe$.next(this.checkoutForm);
+      this.unsubscribe$.complete();
+  }
+
+ private _autoFillUserData() {
+   this.usersService.observeCurrentUser().pipe(takeUntil(this.unsubscribe$)).subscribe((user) => {
+      console.log(user,'Testing');
+
+     if (user) {
+       this.userId = user.id;
+      this.checkoutForm['name'].setValue(user?.name);
+      this.checkoutForm['email'].setValue(user?.email);
+       this.checkoutForm['phone'].setValue(user?.phone);
+        this.checkoutForm['city'].setValue(user?.city);
+         this.checkoutForm['country'].setValue(user?.country);
+          this.checkoutForm['zip'].setValue(user?.zip);
+           this.checkoutForm['apartment'].setValue(user?.apartment);
+            this.checkoutForm['street'].setValue(user?.street);
+      }
+
+    })
+  }
   private _getCartItems() {
     const cart: Cart = this.cartService.getCart();
     this.orderItems = cart.items.map(item => {
@@ -63,7 +92,6 @@ countries: { id: string; name: string; }[] = [];
       }
     });
 
-    console.log(this.orderItems);
 
   }
   private _initCheckoutForm() {
@@ -118,6 +146,7 @@ countries: { id: string; name: string; }[] = [];
 
     this.orderService.createOrder(order).subscribe(() => {
       //redirect
+      this.show("placed");
       this.cartService.emptyCart();
       this.router.navigate(['/success']);
 
@@ -129,5 +158,8 @@ countries: { id: string; name: string; }[] = [];
 
   get checkoutForm() {
     return this.checkoutFormGroup.controls;
+  }
+   show( action:string) {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: `Successfully ${action} order` });
   }
 }

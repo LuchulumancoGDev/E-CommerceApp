@@ -35,6 +35,7 @@ ngOnInit(): void {
   this._getCartDetails();
 
   }
+  
   private _getCartDetails() {
     this.cartService.cart$.pipe(takeUntil(this.endSubs$)).subscribe(resCart => {
       this.cartItemsDetailed = [];

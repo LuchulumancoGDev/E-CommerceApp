@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from "./shared/header/header.component";
 
 import { FooterComponent } from "./shared/footer/footer.component";
 import { CartService } from '@bluebits/orders';
+import { UsersService } from '@bluebits/users';
 
 
 @Component({
@@ -13,11 +14,14 @@ import { CartService } from '@bluebits/orders';
     styleUrl: './app.component.scss',
     imports: [RouterModule, HeaderComponent, FooterComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'ngshop';
 
-  constructor(cartService: CartService) {
+  constructor(cartService: CartService, private userService: UsersService) {
     cartService.initCartLocalStorage();
 
+  }
+  ngOnInit(): void {
+    this.userService.initAppSession();
   }
 }

@@ -4,6 +4,7 @@ import { environment } from '@env/environment';
 
 import { Observable } from 'rxjs';
 import { User } from './models/user';
+import { UsersFacade } from './state/users.facade';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { User } from './models/user';
 export class UsersService {
 
   baseUrl = environment.apiUrl + 'users';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private usersFacade: UsersFacade) { }
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl)
@@ -31,5 +32,16 @@ export class UsersService {
 
   deleteUser(userId: string): Observable<object>{
     return this.http.delete<object>(`${this.baseUrl}/${userId}`)
+  }
+
+  initAppSession() {
+    this.usersFacade.buildUserSession();
+  }
+  observeCurrentUser() {
+    return this.usersFacade.currentUser$;
+  }
+
+   isCurrentUserAuth() {
+    return this.usersFacade.isAuthenticated$;
   }
 }

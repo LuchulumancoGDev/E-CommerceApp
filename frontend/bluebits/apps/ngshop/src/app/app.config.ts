@@ -4,18 +4,36 @@ import { appRoutes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { routes } from '@bluebits/products';
-import { usersRoutes } from '@bluebits/users';
+import { JwtInterceptor, usersRoutes } from '@bluebits/users';
 import { orderRoutes } from '@bluebits/orders';
+import {  provideState, provideStore, StoreModule } from '@ngrx/store';
+import { EffectsModule, provideEffects } from '@ngrx/effects';
+import { usersReducer, USERS_FEATURE_KEY } from '@bluebits/users';
+import { UsersEffects } from 'libs/users/src/lib/state/users.effects';
 
 
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
+     provideStore(),
+  provideState(USERS_FEATURE_KEY, usersReducer),
+  provideEffects([UsersEffects]),
     provideRouter([ ...routes, ...appRoutes, ...orderRoutes, ...usersRoutes ]),
-    importProvidersFrom(BrowserModule, AccordionModule,BrowserAnimationsModule,HttpClientModule)
+    importProvidersFrom(
+    //   StoreModule.forRoot({}),
+    //   StoreModule.forFeature(USERS_FEATURE_KEY, usersReducer),
+    //   EffectsModule.forRoot([]),
+    
+    // EffectsModule.forFeature([UsersEffects]),
+      BrowserModule,
+      AccordionModule,
+      BrowserAnimationsModule,
+      HttpClientModule),
+    
+        {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}
 
   ],
 };
