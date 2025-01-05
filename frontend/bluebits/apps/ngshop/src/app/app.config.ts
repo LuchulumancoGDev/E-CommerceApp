@@ -6,12 +6,11 @@ import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { routes } from '@bluebits/products';
-import { JwtInterceptor, usersRoutes } from '@bluebits/users';
+
 import { orderRoutes } from '@bluebits/orders';
 import {  provideState, provideStore, StoreModule } from '@ngrx/store';
 import { EffectsModule, provideEffects } from '@ngrx/effects';
-import { usersReducer, USERS_FEATURE_KEY } from '@bluebits/users';
-import { UsersEffects } from '@bluebits/users';
+import { usersReducer, USERS_FEATURE_KEY,UsersEffects,JwtInterceptor, usersRoutes } from '@bluebits/users';
 import { provideNgxStripe } from 'ngx-stripe';
 
 
@@ -28,13 +27,13 @@ export const appConfig: ApplicationConfig = {
     //   StoreModule.forRoot({}),
     //   StoreModule.forFeature(USERS_FEATURE_KEY, usersReducer),
     //   EffectsModule.forRoot([]),
-    
+
     // EffectsModule.forFeature([UsersEffects]),
       BrowserModule,
       AccordionModule,
       BrowserAnimationsModule,
       HttpClientModule),
-    
+
         {provide: HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}
 
   ],
