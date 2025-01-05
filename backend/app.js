@@ -39,7 +39,7 @@ app.use(`${api}/users`, userRouter);
 // Connect to MongoDB
 mongoose.connect(process.env.CONNECTION_STRING, {
     
-    dbName: 'eshop-database'
+    dbName: process.env.DB_NAME
 })
 .then(() => {
     console.log('Database Connection is ready...');
@@ -47,6 +47,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 .catch((err) => {
     console.error('Database Connection Error:', err);
 });
+
 
 // Start the server
 const port = process.env.PORT || 3000; // Use PORT environment variable or default to 5000
