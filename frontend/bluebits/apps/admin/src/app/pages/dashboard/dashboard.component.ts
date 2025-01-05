@@ -12,8 +12,8 @@ import { UsersService } from '@bluebits/users';
 })
 export class DashboardComponent {
   orders: Order[] =[] ;
-  products:unknown;
-  users: unknown;
+  products:any;
+  users: any;
   totalSales=0;
   constructor( private orderService: OrderService,private productsService: ProductsService,private usersService: UsersService,){
 

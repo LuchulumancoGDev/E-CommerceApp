@@ -25,8 +25,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class OrdersDetailComponent implements OnInit {
   order?: Order;
-  orderStatuses: unknown;
-  selectedStatus: unknown;
+  orderStatuses: any;
+  selectedStatus: any;
   constructor(private orderService:OrderService, private route: ActivatedRoute,  private messageService: MessageService) { }
 
 

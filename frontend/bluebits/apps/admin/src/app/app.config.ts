@@ -15,7 +15,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditorModule } from 'primeng/editor';
 
-import { JwtInterceptor, USERS_FEATURE_KEY, usersReducer, usersRoutes } from '@bluebits/users';
+import { JwtInterceptor, USERS_FEATURE_KEY, UsersEffects, usersReducer, usersRoutes } from '@bluebits/users';
 import { TagModule } from 'primeng/tag';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { DropdownModule } from 'primeng/dropdown';
@@ -27,7 +27,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PaginatorModule } from 'primeng/paginator';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { UsersEffects } from '@bluebits/users';
+
 import { provideNgxStripe } from 'ngx-stripe';
 
 
@@ -41,7 +41,7 @@ export const appConfig: ApplicationConfig = {
   provideEffects([UsersEffects]),
     provideRouter([ ...usersRoutes, ...appRoutes]),
     importProvidersFrom(
-      
+
       CardModule,
       EditorModule,
       ToolbarModule,
