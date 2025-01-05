@@ -39,7 +39,9 @@ app.use(`${api}/users`, userRouter);
 // Connect to MongoDB
 mongoose.connect(process.env.CONNECTION_STRING, {
     
-    dbName: process.env.DB_NAME
+    dbName: process.env.DB_NAME,
+      serverSelectionTimeoutMS: 30000, 
+    socketTimeoutMS: 45000 // 
 })
 .then(() => {
     console.log('Database Connection is ready....');
