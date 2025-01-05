@@ -52,7 +52,7 @@ onDelete(productId: string) {
               }
 
           );
-          console.log();
+          
 
         },
         reject: () => {

@@ -67,8 +67,7 @@ export class CategoriesFormComponent implements OnInit{
   onSubmit() {
     this.isSubmited = true;
     if (this.form.valid) {
-      console.log("Name", this.form.controls.name.value);
-      console.log("Icon", this.form.controls.icon.value);
+   
 
       const category: Category = {
         id:this.currentCategoryId,

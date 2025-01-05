@@ -13,14 +13,14 @@
       <div class="product-rating">
         <p-rating
           [(ngModel)]="product.rating"
-         
+
           [disabled]="true"
         />
       </div>
       <div class="product-price mb-2">
-        {{ product.price | currency }}
+        {{ product.price | currency :'R' }}
         <span class="price-before">{{
-          (product.price || 0) + 18 | currency
+          (product.price || 0) + 18 | currency:'R'
         }}</span>
       </div>
       <div class="product-quantity">

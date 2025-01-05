@@ -44,14 +44,14 @@ authMessage='Email or Password are wrong!';
     };
 
     this.auth.login(loginData.email,loginData.password).subscribe(user=>{
-      console.log(user);
+
       this.authError=false;
       this.localstorageService.setToken(user.token);
       this.router.navigate(['/']);
 
 
     },(error:HttpErrorResponse)=>{
-      console.log(error);
+      console.error(error);
       if(error.status===400){
         this.authMessage='Error in the server, please try again later';
       }

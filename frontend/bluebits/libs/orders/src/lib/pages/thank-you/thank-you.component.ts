@@ -28,8 +28,8 @@ export class ThankYouComponent implements OnInit {
        this.orderService.removeCachedOrderData();
       //this.router.navigate(['/success']);
 
-    }, () => {
-      console.log("Error something went wrong");
+    }, (error) => {
+      console.error("Error something went wrong",error);
 
     })
 

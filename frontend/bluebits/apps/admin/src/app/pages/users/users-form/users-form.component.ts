@@ -65,7 +65,7 @@ onCancel() {
       }
     });
 
-    console.log(this.countries);
+   
 
 
 

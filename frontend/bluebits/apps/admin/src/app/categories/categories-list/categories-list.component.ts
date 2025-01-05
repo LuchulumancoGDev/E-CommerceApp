@@ -56,7 +56,7 @@ export class CategoriesListComponent implements OnInit{
               }
 
           );
-          console.log();
+         
 
         },
         reject: () => {

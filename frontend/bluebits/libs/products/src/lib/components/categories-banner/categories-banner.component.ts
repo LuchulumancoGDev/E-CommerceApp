@@ -25,7 +25,7 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.categoriesService.getCategories().pipe(takeUntil(this.endSubs$)).subscribe(category => {
       this.categories = category;
-      console.log(this.categories);
+      
 
     });
      this.responsiveOptions = [
