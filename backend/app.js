@@ -42,7 +42,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     dbName: process.env.DB_NAME
 })
 .then(() => {
-    console.log('Database Connection is ready...');
+    console.log('Database Connection is ready....');
 })
 .catch((err) => {
     console.error('Database Connection Error:', err);
