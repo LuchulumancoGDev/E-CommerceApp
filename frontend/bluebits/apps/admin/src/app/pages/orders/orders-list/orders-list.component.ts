@@ -61,11 +61,11 @@ this.confirmationService.confirm({
 
         accept: () => {
             this.orderService.deleteOrder(orderId).subscribe(
-                r => {
+                () => {
                      this._getOrders();
                     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Order is deleted' });
                 },
-                (error) => {
+                () => {
                     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Category has not been deleted' });
               }
 
@@ -79,7 +79,7 @@ this.confirmationService.confirm({
     });
   }
 
-showOrder(orderId: any) {
+showOrder(orderId: unknown) {
   this.router.navigateByUrl(`orders/${orderId}`)
   }
 

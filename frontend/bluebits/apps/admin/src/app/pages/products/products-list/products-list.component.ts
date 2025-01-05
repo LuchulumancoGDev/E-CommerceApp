@@ -43,11 +43,11 @@ onDelete(productId: string) {
 
         accept: () => {
             this.productsService.deleteProduct(productId).subscribe(
-                r => {
+                () => {
                     this._getProducts();
                     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Product is deleted' });
                 },
-                (error) => {
+                () => {
                     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Product has not been deleted' });
               }
 
@@ -66,7 +66,7 @@ onDelete(productId: string) {
 
     this.productsService.getProducts().subscribe((products) => {
       this.products = products;
- 
+
 
     });
 

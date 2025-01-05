@@ -25,9 +25,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PaginatorModule } from 'primeng/paginator';
-import { provideState, provideStore, StoreModule } from '@ngrx/store';
-import { EffectsModule, provideEffects } from '@ngrx/effects';
-import { UsersEffects } from 'libs/users/src/lib/state/users.effects';
+import { provideState, provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { UsersEffects } from '@bluebits/users';
 import { provideNgxStripe } from 'ngx-stripe';
 
 
@@ -41,10 +41,7 @@ export const appConfig: ApplicationConfig = {
   provideEffects([UsersEffects]),
     provideRouter([ ...usersRoutes, ...appRoutes]),
     importProvidersFrom(
-      //    StoreModule.forRoot({}),
-      // EffectsModule.forRoot([]),
-      //  StoreModule.forFeature(USERS_FEATURE_KEY, usersReducer),
-      // EffectsModule.forFeature([UsersEffects]),
+      
       CardModule,
       EditorModule,
       ToolbarModule,

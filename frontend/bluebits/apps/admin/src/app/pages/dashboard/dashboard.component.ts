@@ -12,8 +12,8 @@ import { UsersService } from '@bluebits/users';
 })
 export class DashboardComponent {
   orders: Order[] =[] ;
-  products:any;
-  users: any;
+  products:unknown;
+  users: unknown;
   totalSales=0;
   constructor( private orderService: OrderService,private productsService: ProductsService,private usersService: UsersService,){
 
@@ -25,7 +25,7 @@ export class DashboardComponent {
           total += parseFloat(priceStr);
         });
         this.totalSales = total;
- 
+
       });
 
       this.productsService.getProducts().subscribe((products) => {

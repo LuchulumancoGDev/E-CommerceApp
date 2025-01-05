@@ -153,7 +153,7 @@ onCancel() {
           this.imageDisplay = product.image;
           this.form.get('image')?.clearValidators();
           this.form.get('image')?.updateValueAndValidity();
-  
+
 
         });
       }

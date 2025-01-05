@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { OrderService } from '../../services/orders.service';
-import { CartService } from '@bluebits/orders';
+import { CartService } from '../../services/cart.service';
 import { MessageService } from 'primeng/api';
 
 @Component({

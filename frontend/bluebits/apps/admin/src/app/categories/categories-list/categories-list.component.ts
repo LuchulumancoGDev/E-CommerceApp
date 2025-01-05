@@ -47,11 +47,11 @@ export class CategoriesListComponent implements OnInit{
 
         accept: () => {
             this.categoryService.deleteCategory(categoryId).subscribe(
-                r => {
+                () => {
                     this.getCategories();
                     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Category is deleted' });
                 },
-                (error) => {
+                () => {
                     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Category has not been deleted' });
               }
 

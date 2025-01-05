@@ -11,7 +11,7 @@ import { orderRoutes } from '@bluebits/orders';
 import {  provideState, provideStore, StoreModule } from '@ngrx/store';
 import { EffectsModule, provideEffects } from '@ngrx/effects';
 import { usersReducer, USERS_FEATURE_KEY } from '@bluebits/users';
-import { UsersEffects } from 'libs/users/src/lib/state/users.effects';
+import { UsersEffects } from '@bluebits/users';
 import { provideNgxStripe } from 'ngx-stripe';
 
 

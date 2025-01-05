@@ -8,11 +8,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
-import { UsersService } from '../../../../../../../libs/users/src/lib/users.service';
+
 import { ConfirmationService } from 'primeng/api'; // Correct import path
 import { Router, RouterModule } from '@angular/router';
 import { TagModule } from 'primeng/tag';
 import * as countries from 'i18n-iso-countries';
+import { UsersService } from '@bluebits/users';
 
 declare const require: (arg0: string) => countries.LocaleData;
 @Component({
@@ -76,7 +77,7 @@ export class UsersListComponent implements OnInit {
   private _getUsers() {
     this.usersService.getUsers().subscribe((users) => {
       this.users = users;
- 
+
 
     });
   }

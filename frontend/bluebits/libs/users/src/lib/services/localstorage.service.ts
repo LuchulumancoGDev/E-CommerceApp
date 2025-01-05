@@ -7,7 +7,7 @@ const TOKEN='jwtToken'
 })
 export class LocalstorageService {
 
-  constructor() { }
+  
 
   setToken(data:any){
     localStorage.setItem(TOKEN,data)
@@ -23,7 +23,7 @@ export class LocalstorageService {
      localStorage.removeItem(TOKEN)
 
   }
-  
+
   isValidToken() {
     const token = this.getToken();
     if (token) {
@@ -46,7 +46,7 @@ export class LocalstorageService {
       else{
           return null;
       }
-    
+
 
     }
     else {
@@ -58,5 +58,5 @@ export class LocalstorageService {
     return Math.floor(new Date().getTime() / 1000) >= expiration;
   }
 
-  
+
 }

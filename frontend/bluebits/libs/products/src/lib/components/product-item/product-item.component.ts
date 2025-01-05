@@ -15,7 +15,7 @@ import { CartItem, CartService } from '@bluebits/orders';
     templateUrl: './product-item.component.html',
     styles: ``
 })
-export class ProductItemComponent implements OnInit {
+export class ProductItemComponent  {
 
 @Input() product: Product | undefined
 
@@ -23,9 +23,7 @@ constructor(private cartService: CartService, private messageService: MessageSer
 
 }
 
-ngOnInit(): void {
 
-  }
 
   addProductToCart() {
     const cartItem: CartItem = {
