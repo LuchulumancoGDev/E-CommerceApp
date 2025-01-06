@@ -41,6 +41,6 @@ const reducer = createReducer(
 
 export function usersReducer(state: UsersState | undefined, action: Action) {
 
-  
+
   return reducer(state, action);
 }

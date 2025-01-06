@@ -21,6 +21,7 @@
     "@angular/language-service": "^19.0.5",
     "@ngrx/schematics": "^19.0.0",
     "@ngrx/store-devtools": "^19.0.0",
+    "@nx/angular": "^20.3.0",
     "@nx/cypress": "^20.3.0",
     "@nx/eslint": "^20.3.0",
     "@nx/eslint-plugin": "^20.3.0",
