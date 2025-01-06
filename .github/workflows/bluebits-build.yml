@@ -1,0 +1,36 @@
+name: Build Bluebits Frontend
+
+on:
+  push:
+    branches:
+      - main  # Or the branch you want to trigger the action
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Specify the version of Node.js you want
+
+    - name: Navigate to frontend/bluebits directory
+      run: cd frontend/bluebits
+
+    - name: Install dependencies
+      run: npm install
+      working-directory: frontend/bluebits
+
+    - name: Build the project
+      run: npm run build --prod  # Adjust the build command if needed
+      working-directory: frontend/bluebits
+
+    - name: Upload dist folder as an artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: bluebits-dist
+        path: frontend/bluebits/dist/  # Path to the dist folder
